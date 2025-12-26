@@ -9,7 +9,6 @@ export default function NavBar() {
   return (
     <nav className="fixed w-full top-0 left-0 bg-white shadow-md z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {/* Logo */}
         <a
           href="#"
           className="flex items-center space-x-3 font-bold text-lg text-gray-900"
@@ -17,7 +16,6 @@ export default function NavBar() {
           Luxury
         </a>
 
-        {/* Hamburger for mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           type="button"
@@ -29,7 +27,6 @@ export default function NavBar() {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Menu Items */}
         <div
           className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
           id="navbar-menu"
@@ -37,7 +34,7 @@ export default function NavBar() {
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 bg-gray-50 rounded-lg border border-gray-200 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white items-center">
             <li>
               <a
-                href="#"
+                href="/home"
                 className="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-600 md:p-0"
                 aria-current="page"
               >
@@ -46,7 +43,7 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/mybooking"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0"
               >
                 My Booking
@@ -54,14 +51,13 @@ export default function NavBar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/contact"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0"
               >
                 Contact
               </a>
             </li>
 
-            {/* Profile */}
             <li className="relative">
               <button
                 onClick={() => setProfileOpen(!profileOpen)}
@@ -70,7 +66,6 @@ export default function NavBar() {
                 <User size={20} /> Profile
               </button>
 
-              {/* Dropdown */}
               {profileOpen && (
                 <ul className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-md">
                   <li>

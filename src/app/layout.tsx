@@ -1,5 +1,7 @@
 import NavBar from "@/components/layout/nav-bar";
 import "./globals.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Providers from "./providers";
 
 export default function RootLayout({
   children,
@@ -9,8 +11,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavBar />
-        <main className="pt-20">{children}</main>
+        <Providers>
+          <NavBar />
+          <main className="pt-20">{children}</main>
+        </Providers>
       </body>
     </html>
   );
