@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react";
 export type Room = {
   id: string;
   title: string;
@@ -15,4 +16,10 @@ export type Room = {
 export type categories = {
   id: number;
   rooType: string;
+};
+
+export type Amenity = {
+  id: string;
+  label: string;
+  icon: LucideIcon;
 };
