@@ -165,3 +165,10 @@ export const rooms = [
     bedType: "Double",
   },
 ];
+
+export const categories = [
+  { id: "standard", roomType: "Standard Room" },
+  { id: "deluxe", roomType: "Deluxe Room" },
+  { id: "suite", roomType: "Suite" },
+  { id: "family", roomType: "Family Room" },
+];
