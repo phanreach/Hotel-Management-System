@@ -1,11 +1,19 @@
 import RoomCard from "@/components/room-card";
 import Header from "@/components/header";
+import PriceRange from "@/components/price-range";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-gray-100">
       <Header />
-      <RoomCard />
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 p-8">
+        <div className="lg:col-span-1">
+          <PriceRange />
+        </div>
+        <div className="lg:col-span-3">
+          <RoomCard />
+        </div>
+      </div>
     </div>
   );
 }

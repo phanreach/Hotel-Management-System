@@ -10,7 +10,7 @@ export default function Header() {
   const [checkOut, setCheckOut] = useState<Date | undefined>();
 
   return (
-    <div className="relative px-8 py-8">
+    <div className="bg-white relative px-8 py-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="font-bold text-5xl text-gray-900 mb-3">
