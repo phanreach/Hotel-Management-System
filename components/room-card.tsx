@@ -27,14 +27,14 @@ export default function RoomCard() {
             </div>
           </a>
 
-          <div className="p-5">
-            <a href="#" className="block mb-3">
-              <h5 className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors line-clamp-1">
+          <div className="p-5 flex flex-col flex-1">
+            <a href="#" className="block mb-2">
+              <h5 className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors line-clamp-2">
                 {room.title}
               </h5>
             </a>
 
-            <p className="mb-4 text-sm text-gray-600 line-clamp-2 leading-relaxed">
+            <p className="mb-4 text-sm text-gray-600 line-clamp-3 leading-relaxed">
               {room.description}
             </p>
 
@@ -53,7 +53,7 @@ export default function RoomCard() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 mb-4 justify-between">
+            <div className="flex items-center gap-2 mt-auto justify-between">
               <div>
                 <p className="text-sm text-gray-600">Per Night</p>
                 <p className="font-bold text-gray-800">
