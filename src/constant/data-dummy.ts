@@ -1,3 +1,5 @@
+import { Wifi, Utensils, WavesLadder } from "lucide-react";
+
 export const rooms = [
   {
     id: "1",
@@ -171,4 +173,22 @@ export const categories = [
   { id: "deluxe", roomType: "Deluxe Room" },
   { id: "suite", roomType: "Suite" },
   { id: "family", roomType: "Family Room" },
+];
+
+export const amenitiesData = [
+  {
+    id: "wifi",
+    label: "Free Wifi",
+    icon: Wifi,
+  },
+  {
+    id: "pool",
+    label: "Pool Access",
+    icon: WavesLadder,
+  },
+  {
+    id: "breakfast",
+    label: "Breakfast Included",
+    icon: Utensils,
+  },
 ];

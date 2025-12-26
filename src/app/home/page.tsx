@@ -2,6 +2,7 @@ import RoomCard from "@/components/room-card";
 import Header from "@/components/header";
 import PriceRange from "@/components/price-range";
 import CategoriesCheck from "@/components/categories-check";
+import Amenities from "@/components/amenities";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <div className="lg:col-span-1 space-y-8">
           <PriceRange />
           <CategoriesCheck />
+          <Amenities />
         </div>
         <div className="lg:col-span-3">
           <RoomCard />
