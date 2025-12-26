@@ -12,3 +12,7 @@ export type Room = {
   size?: number;
   bedType?: string;
 };
+export type categories = {
+  id: number;
+  rooType: string;
+};
