@@ -71,13 +71,19 @@ export default function PaymentMethod() {
             </label>
             <div className="relative">
               <input
-                className="h-12 w-full rounded-lg border border-[#dbe0e6] bg-white pl-12 pr-4 text-base text-[#111418] placeholder-[#9aa2ac] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                className="h-12 w-full rounded-lg border border-[#dbe0e6] bg-white pl-12 pr-4
+               text-base text-[#111418] placeholder-[#9aa2ac]
+               focus:border-primary focus:ring-1 focus:ring-primary
+               outline-none transition-all"
                 id="card-number"
                 placeholder="0000 0000 0000 0000"
                 type="text"
               />
 
-              <CreditCard size={20} className="text-grey-600" />
+              <CreditCard
+                size={20}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
+              />
             </div>
           </div>
 
@@ -102,13 +108,19 @@ export default function PaymentMethod() {
             </label>
             <div className="relative">
               <input
-                className="h-12 w-full rounded-lg border border-[#dbe0e6] bg-white px-4 text-base text-[#111418] placeholder-[#9aa2ac] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                className="h-12 w-full rounded-lg border border-[#dbe0e6] bg-white
+               px-4 pr-12 text-base text-[#111418] placeholder-[#9aa2ac]
+               focus:border-primary focus:ring-1 focus:ring-primary
+               outline-none transition-all"
                 id="cvc"
                 placeholder="123"
                 type="text"
               />
 
-              <HelpCircle size={20} className="text-grey-600" />
+              <HelpCircle
+                size={20}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+              />
             </div>
           </div>
 
