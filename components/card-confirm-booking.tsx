@@ -1,5 +1,6 @@
 import { bookingDummy } from "@/src/constant/data-dummy";
 import { BookingSummary } from "@/src/types/api";
+import { MapPin, Lock } from "lucide-react";
 import React from "react";
 
 type Props = {
@@ -36,7 +37,7 @@ export default function CardConfirmBooking({ data = bookingDummy }: Props) {
           </h3>
           <p className="text-sm text-[#617589] flex items-center gap-1">
             <span className="material-symbols-outlined text-sm">
-              location_on
+              <MapPin size={16} className="text-grey-600" />
             </span>
             {data.address}
           </p>
@@ -103,11 +104,12 @@ export default function CardConfirmBooking({ data = bookingDummy }: Props) {
           </div>
         </div>
         <button className="flex w-full cursor-pointer rounded-lg h-12 bg-blue-500 text-white text-base font-bold shadow-lg shadow-primary/30 hover:bg-blue-600 transition-all items-center justify-center gap-2">
-          <span className="material-symbols-outlined">lock</span> Complete
-          Booking
+          <span className="material-symbols-outlined">
+            <Lock size={20} className="text-white" />
+          </span>{" "}
+          Complete Booking
         </button>
       </div>
-     
     </div>
   );
 }

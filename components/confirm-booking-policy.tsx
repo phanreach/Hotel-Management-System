@@ -3,7 +3,7 @@ import React from "react";
 export default function ConfirmBookingPolicy() {
   return (
     <div>
-      <div className="text-center px-4">
+      <div className="text-center px-4 py-4">
         <p className="text-xs text-[#9aa2ac]">
           By clicking "Complete Booking", you agree to our{" "}
           <a className="text-primary hover:underline" href="#">

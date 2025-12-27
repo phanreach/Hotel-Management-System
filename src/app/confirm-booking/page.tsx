@@ -9,7 +9,7 @@ import React from "react";
 
 export default function ConfirmBooking() {
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-100 px-32 pb-32">
       <ConfirmBookingHeader />
 
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">

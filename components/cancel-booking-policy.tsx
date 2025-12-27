@@ -1,11 +1,12 @@
 import React from "react";
+import { Info } from "lucide-react";
 
 export default function CancelBookingPolicy() {
   return (
     <div>
       <div className="bg-blue-50  rounded-xl border border-blue-100 p-6 flex gap-4 items-start">
         <span className="material-symbols-outlined text-primary mt-1">
-          info
+          <Info size={24} className="text-blue-600" />
         </span>
         <div>
           <h4 className="text-base font-bold text-[#111418] mb-1">
