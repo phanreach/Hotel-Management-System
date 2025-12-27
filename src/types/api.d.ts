@@ -23,6 +23,10 @@ export type Amenity = {
   label: string;
   icon: LucideIcon;
 };
+export type Payment = {
+  id: number;
+  detail: string;
+};
 // types/booking.ts
 export type BookingSummary = {
   hotelName: string;
