@@ -23,3 +23,8 @@ export type Amenity = {
   label: string;
   icon: LucideIcon;
 };
+
+export type Payment = {
+  id: number;
+  detail: string;
+};
