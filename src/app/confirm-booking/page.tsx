@@ -1,5 +1,7 @@
+import CancelBookingPolicy from "@/components/cancel-booking-policy";
 import CardConfirmBooking from "@/components/card-confirm-booking";
 import ConfirmBookingHeader from "@/components/confirm-booking-header";
+import ConfirmBookingPolicy from "@/components/confirm-booking-policy";
 import GuestInformation from "@/components/guest-information";
 import Header from "@/components/header";
 import PaymentMethod from "@/components/payment-method";
@@ -15,12 +17,14 @@ export default function ConfirmBooking() {
         <div className="lg:col-span-2 flex flex-col gap-8">
           <GuestInformation />
           <PaymentMethod />
+          <CancelBookingPolicy />
         </div>
 
         {/* RIGHT CARD */}
         <div className="lg:col-span-1">
           <div className="sticky top-24">
             <CardConfirmBooking />
+            <ConfirmBookingPolicy />
           </div>
         </div>
       </div>
