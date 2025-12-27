@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Room } from "@/src/types/api";
 import { rooms } from "@/src/constant/data-dummy";
 import { Wifi, BedDouble, Utensils } from "lucide-react";
@@ -20,11 +21,12 @@ export default function RoomCard() {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentRooms.map((room: Room) => (
-          <div
+          <Link
             key={room.id}
-            className="bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group"
+            href={`/home/${room.id}`}
+            className="block bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group"
           >
-            <a href="#" className="block relative overflow-hidden">
+            <div className="relative overflow-hidden">
               <img
                 className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                 src={room.images[0]}
@@ -37,14 +39,12 @@ export default function RoomCard() {
                   {room.rating}
                 </p>
               </div>
-            </a>
+            </div>
 
             <div className="p-5 flex flex-col flex-1">
-              <a href="#" className="block mb-2">
-                <h5 className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors line-clamp-2">
-                  {room.title}
-                </h5>
-              </a>
+              <h5 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
+                {room.title}
+              </h5>
 
               <p className="mb-4 text-sm text-gray-600 line-clamp-3 leading-relaxed flex-1">
                 {room.description}
@@ -69,7 +69,7 @@ export default function RoomCard() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 mt-auto justify-between">
+              <div className="flex items-center justify-between mt-auto">
                 <div>
                   <p className="text-sm text-gray-600">Per Night</p>
                   <p className="font-bold text-gray-800">
@@ -77,21 +77,20 @@ export default function RoomCard() {
                   </p>
                 </div>
 
-                <button className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 transition-colors duration-200 shadow-md hover:shadow-lg">
+                <span className="inline-flex items-center justify-center bg-blue-600 text-white font-semibold rounded-xl px-5 py-3 shadow-md group-hover:bg-blue-700 transition">
                   Book Now
-                </button>
+                </span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
-      {/* Pagination */}
       <div className="mt-8">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
-          onPageChange={(page) => setCurrentPage(page)}
+          onPageChange={setCurrentPage}
         />
       </div>
     </>
