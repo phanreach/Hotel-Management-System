@@ -23,3 +23,23 @@ export type Amenity = {
   label: string;
   icon: LucideIcon;
 };
+// types/booking.ts
+export type BookingSummary = {
+  hotelName: string;
+  imageUrl: string;
+  roomType: string;
+  address: string;
+  checkIn: {
+    date: string;
+    time: string;
+  };
+  checkOut: {
+    date: string;
+    time: string;
+  };
+  nights: number;
+  guests: number;
+  pricePerNight: number;
+  taxes: number;
+  discount: number;
+};

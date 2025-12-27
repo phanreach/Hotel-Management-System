@@ -1,4 +1,5 @@
 import { Wifi, Utensils, WavesLadder } from "lucide-react";
+import { BookingSummary } from "../types/api";
 
 export const rooms = [
   {
@@ -192,3 +193,24 @@ export const amenitiesData = [
     icon: Utensils,
   },
 ];
+
+export const bookingDummy: BookingSummary = {
+  hotelName: "LuxHotel Downtown",
+  imageUrl:"url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUAJDfP2oUzxb8Y-osR4JwKsyJFVgIzx8r5VGYiS0T-DRr-XRH0QE5o4IKUHwBZ4ZhqXTWPBRi-7YEu7BvbeX7u39FtjjgFh2qazAeCDYGKiHrqTPfBrJBiB880PB7wKeD1rGQUBMxhWOPtE21cNHCC9YH7GQSSoSuNoBIt96UfzqcInQBJx6A4Ih1EMGV2BmTVWntYZWttbDv3fE5GFqPLlosVAF7qUM4bNCyc5fcxkW7kvFRLICf8eCMP09EjnlKxOq7JlqoswY')",
+  address: "123 Main St, New York, NY",
+  roomType: "Deluxe Room",
+  checkIn: {
+    date: "Thu, Oct 12, 2023",
+    time: "After 3:00 PM",
+  },
+  checkOut: {
+    date: "Sun, Oct 15, 2023",
+    time: "Before 11:00 AM",
+  },
+  nights: 3,
+  guests: 2,
+  pricePerNight: 200,
+  taxes: 50,
+  discount: 0,
+};
+
