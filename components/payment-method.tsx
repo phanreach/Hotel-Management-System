@@ -1,17 +1,30 @@
 import React from "react";
+import {
+  Wallet,
+  Banknote,
+  Landmark,
+  CreditCard,
+  Lock,
+  HelpCircle,
+} from "lucide-react";
 
 export default function PaymentMethod() {
   return (
     <section className="bg-white rounded-xl border border-[#dbe0e6] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-6 border-b border-[#f0f2f4] pb-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-primary/10 rounded-lg text-primary">
-            <span className="material-symbols-outlined">credit_card</span>
+          <div className="p-2 bg-blue-50 rounded-lg text-primary">
+            <span className="material-symbols-outlined">
+              {" "}
+              <Landmark size={20} className="text-blue-600" />
+            </span>
           </div>
           <h3 className="text-xl font-bold text-[#111418]">Payment Method</h3>
         </div>
         <div className="flex items-center gap-2 text-[#9aa2ac]">
-          <span className="material-symbols-outlined text-sm">lock</span>
+          <span className="material-symbols-outlined text-sm">
+            <Lock size={12} className="text-grey-600" />
+          </span>
           <span className="text-xs font-medium uppercase">Secure SSL</span>
         </div>
       </div>
@@ -19,12 +32,15 @@ export default function PaymentMethod() {
       {/* Payment Tabs */}
       <div className="flex gap-4 mb-6">
         <button className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-primary/10 text-primary border border-primary font-medium transition-all">
-          <span className="material-symbols-outlined">credit_card</span>
+          <span className="material-symbols-outlined">
+            {" "}
+            <CreditCard size={20} className="text-blue-600" />
+          </span>
           Credit Card
         </button>
         <button className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white border border-[#dbe0e6] text-[#617589] font-medium hover:bg-gray-50 transition-all">
           <span className="material-symbols-outlined">
-            account_balance_wallet
+            <Wallet size={20} className="text-blue-600" />
           </span>
           Digital Wallet
         </button>
@@ -45,9 +61,9 @@ export default function PaymentMethod() {
               placeholder="0000 0000 0000 0000"
               type="text"
             />
-            {/* <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#9aa2ac]">
-                credit_card
-              </span> */}
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#9aa2ac]">
+                 <CreditCard size={20} className="text-grey-600" />
+              </span>
           </div>
         </div>
 
@@ -78,7 +94,7 @@ export default function PaymentMethod() {
               type="text"
             />
             <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[#9aa2ac] text-lg cursor-help">
-              help
+              <HelpCircle size={20} className="text-grey-600" />
             </span>
           </div>
         </div>

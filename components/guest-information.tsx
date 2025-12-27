@@ -1,12 +1,17 @@
 import React from "react";
+import { User } from "lucide-react";
 
 export default function GuestInformation() {
   return (
     <section className="bg-white rounded-xl border border-[#dbe0e6] p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-6 border-b border-[#f0f2f4] pb-4">
-        <div className="p-2 bg-primary/10 rounded-lg text-primary">
-          <span className="material-symbols-outlined">person</span>
+        <div className="p-2 bg-blue-50 rounded-lg text-primary">
+          <span className="material-symbols-outlined">
+            {" "}
+            <User size={20} className="text-blue-600" />
+          </span>
         </div>
+
         <h3 className="text-xl font-bold text-[#111418]">Guest Information</h3>
       </div>
 
