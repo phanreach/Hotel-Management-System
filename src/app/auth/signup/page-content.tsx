@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Lock, EyeOff, Loader2 } from "lucide-react"; // Assuming Lucide for icons
+import { Mail, Lock, EyeOff, Loader2 } from "lucide-react";
 import { useLogin } from "@/hooks/useLogin";
 
-export default function LoginPageContent() {
+export default function SignupPageContent() {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const { login, isLoading } = useLogin();
 
@@ -17,7 +17,6 @@ export default function LoginPageContent() {
 
   return (
     <div className="flex min-h-screen w-full flex-row">
-      {/* Left Panel: Hero Image (Static UI) */}
       <div
         className="hidden lg:flex w-1/2 relative flex-col justify-end p-12 bg-cover bg-center"
         style={{
