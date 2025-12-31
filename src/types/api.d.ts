@@ -29,6 +29,7 @@ export type Payment = {
 };
 // types/booking.ts
 export type BookingSummary = {
+  id: string;
   hotelName: string;
   imageUrl: string;
   roomType: string;
@@ -46,4 +47,6 @@ export type BookingSummary = {
   pricePerNight: number;
   taxes: number;
   discount: number;
+  status: BookingStatus;
 };
+export type BookingStatus = "upcoming" | "completed" | "cancelled";
