@@ -491,4 +491,38 @@ export const bookingSummaries = [
     discount: 50,
     status: "cancelled",
   },
+  
 ];
+export const users = [
+  {
+    id: 1,
+    name: 'John Doe',
+    userId: 'USR-001',
+    avatar: 'https://i.pravatar.cc/150?img=1',
+    role: 'Admin',
+    email: 'john@example.com',
+    status: 'Active',
+    joined: 'Jan 10, 2025',
+  },
+  {
+    id: 2,
+    name: 'Sarah Smith',
+    userId: 'USR-002',
+    avatar: 'https://i.pravatar.cc/150?img=2',
+    role: 'Manager',
+    email: 'sarah@example.com',
+    status: 'Inactive',
+    joined: 'Feb 02, 2025',
+  },
+  {
+    id: 3,
+    name: 'Michael Lee',
+    userId: 'USR-003',
+    avatar: 'https://i.pravatar.cc/150?img=3',
+    role: 'Staff',
+    email: 'michael@example.com',
+    status: 'Pending',
+    joined: 'Mar 18, 2025',
+  },
+];
+
