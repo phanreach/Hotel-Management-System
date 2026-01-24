@@ -63,7 +63,6 @@ export default function BookingHistory() {
   );
 }
 
-/* Optional empty state */
 function EmptyState() {
   return (
     <div className="flex flex-col items-center justify-center text-center bg-white border border-dashed border-gray-300 rounded-xl p-10">

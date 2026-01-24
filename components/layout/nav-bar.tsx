@@ -1,20 +1,37 @@
 "use client";
 import { useState } from "react";
 import { Menu, X, User } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const links = [
+    { name: "Home", href: "/home" },
+    { name: "My Booking", href: "/booking-history" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const profileLinks = [
+    { name: "My Account", href: "/account" },
+    { name: "Settings", href: "/settings" },
+    { name: "Logout", href: "/logout" },
+  ];
+
+  const isActive = (href: string) => pathname === href;
 
   return (
     <nav className="fixed w-full top-0 left-0 bg-white shadow-md z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="#"
+        <Link
+          href="/home"
           className="flex items-center space-x-3 font-bold text-lg text-gray-900"
         >
           Luxury
-        </a>
+        </Link>
 
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -32,66 +49,49 @@ export default function NavBar() {
           id="navbar-menu"
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 bg-gray-50 rounded-lg border border-gray-200 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white items-center">
-            <li>
-              <a
-                href="/home"
-                className="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-600 md:p-0"
-                aria-current="page"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/mybooking"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0"
-              >
-                My Booking
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contact"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0"
-              >
-                Contact
-              </a>
-            </li>
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`block py-2 px-3 rounded md:p-0 ${
+                    isActive(link.href)
+                      ? "text-white bg-blue-600 md:text-blue-600 md:bg-transparent"
+                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
 
             <li className="relative">
               <button
                 onClick={() => setProfileOpen(!profileOpen)}
-                className="flex items-center gap-2 py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0"
+                className={`flex items-center gap-2 py-2 px-3 rounded md:p-0 ${
+                  profileLinks.some((pl) => isActive(pl.href))
+                    ? "text-white bg-blue-600 md:text-blue-600 md:bg-transparent"
+                    : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600"
+                }`}
               >
                 <User size={20} /> Profile
               </button>
 
               {profileOpen && (
-                <ul className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-md">
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      My Account
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Logout
-                    </a>
-                  </li>
+                <ul className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-md z-50">
+                  {profileLinks.map((pl) => (
+                    <li key={pl.href}>
+                      <Link
+                        href={pl.href}
+                        className={`block px-4 py-2 rounded ${
+                          isActive(pl.href)
+                            ? "text-white bg-blue-600"
+                            : "text-gray-700 hover:bg-gray-100"
+                        }`}
+                      >
+                        {pl.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               )}
             </li>

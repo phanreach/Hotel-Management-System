@@ -3,7 +3,7 @@ import { User } from "lucide-react";
 
 export default function GuestInformation() {
   return (
-    <section className="bg-white rounded-xl border border-[#dbe0e6] p-6 shadow-sm">
+    <section className="bg-white rounded-xl p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-6 border-b border-[#f0f2f4] pb-4">
         <div className="p-2 bg-blue-50 rounded-lg text-primary">
           <span className="material-symbols-outlined">

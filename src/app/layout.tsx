@@ -18,7 +18,7 @@ export default function RootLayout({
       <body>
         <Providers>
           {!hideNavBar && <NavBar />}
-          <main className={hideNavBar ? "" : "pt-20"}>{children}</main>
+          <main className={hideNavBar ? "" : "pt-15"}>{children}</main>
         </Providers>
       </body>
     </html>
