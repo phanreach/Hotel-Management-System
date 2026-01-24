@@ -7,9 +7,9 @@ import {
 
 const NAV_ITEMS = [
   { label: 'Dashboard', icon: LayoutDashboard, href: '/dashboard', active: true },
-  { label: 'Rooms', icon: Bed, href: '/rooms' },
+  { label: 'Rooms', icon: Bed, href: '/dashboard-room' },
   { label: 'Bookings', icon: BookOpen, href: '/bookings' },
-  { label: 'Guests', icon: Group, href: '/guests' },
+  { label: 'Guests', icon: Group, href: '/dashboard-user' },
   { label: 'Staff', icon: BadgeCheck, href: '/staff' },
   { label: 'Settings', icon: Settings, href: '/settings' },
 ];
