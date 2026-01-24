@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { Amenity } from "@/src/types/api";
 import { amenitiesData } from "@/src/constant/data-dummy";
+import Icon from "@/src/assets/icon/icon-asset";
 
 export default function Amenities() {
   const [selected, setSelected] = useState<string[]>([]);
@@ -18,14 +18,16 @@ export default function Amenities() {
       <h1 className="font-semibold text-lg">Amenities</h1>
 
       <div className="space-y-4">
-        {amenitiesData.map((amenity: Amenity) => {
-          const Icon = amenity.icon;
+        {amenitiesData.map((amenity) => {
           const isChecked = selected.includes(amenity.id);
 
           return (
             <div key={amenity.id} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Icon size={16} className="text-gray-500" />
+                <Icon
+                  name={amenity.icon as keyof typeof Icon}
+                  className="text-gray-500"
+                />
                 <p className="text-sm">{amenity.label}</p>
               </div>
 

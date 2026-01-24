@@ -1,21 +1,50 @@
-import type { LucideIcon } from "lucide-react";
-export type Room = {
-  id: string;
+import { LucideIcon } from "lucide-react";
+
+export type Amenity = {
+  name: string;
+  icon: keyof typeof ICONS;
+  description?: string;
+};
+
+export type RoomBooking = {
+  id: number;
+  customerName: string;
+  startDate: string;
+  endDate: string;
+  nights: number;
+  taxes: number;
+  discount: number;
+  guests: number;
+  address: string;
+  status: "PENDING" | "CONFIRMED" | "CANCELLED";
+};
+
+export type RoomImage = {
+  id: number;
+  image: string;
+};
+export type RoomBase = {
+  id: number;
   title: string;
   description: string;
-  images: string[];
+  images: RoomImage[];
   pricePerNight: number;
+
   rating?: number;
-  maxGuests: number;
-  amenities: string[];
-  isAvailable: boolean;
-  roomType: string;
-  size?: number;
+  maxGuests?: number;
+  amenities?: Amenity[];
+  isAvailable?: boolean;
+  roomType?: string;
+  bedSize?: number;
   bedType?: string;
-};
-export type categories = {
-  id: number;
-  rooType: string;
+
+  serviceFee?: number;
+  cleaningFee?: number;
+  hotelName?: string;
+
+  checkinDate?: string;
+  checkoutDate?: string;
+  bookings?: RoomBooking[];
 };
 
 export type Amenity = {
@@ -33,20 +62,12 @@ export type BookingSummary = {
   hotelName: string;
   imageUrl: string;
   roomType: string;
-  address: string;
-  checkIn: {
-    date: string;
-    time: string;
-  };
-  checkOut: {
-    date: string;
-    time: string;
-  };
-  nights: number;
-  guests: number;
-  pricePerNight: number;
-  taxes: number;
-  discount: number;
-  status: BookingStatus;
+};
+
+export type RoomWithBooking = RoomBase & RoomBooking;
+
+export type Payment = {
+  id: number;
+  detail: string;
 };
 export type BookingStatus = "upcoming" | "completed" | "cancelled";

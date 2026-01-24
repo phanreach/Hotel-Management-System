@@ -15,7 +15,7 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
 }) => {
   const handleClick = (page: number) => {
-    if (page > 0 && page <= totalPages) {
+    if (page > 0 && page <= totalPages && page !== currentPage) {
       onPageChange(page);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -23,8 +23,17 @@ const Pagination: React.FC<PaginationProps> = ({
 
   if (totalPages <= 1) return null;
 
+  // Show at most 5 pages at a time for simplicity
+  const pageNumbers = [];
+  const startPage = Math.max(1, currentPage - 2);
+  const endPage = Math.min(totalPages, currentPage + 2);
+
+  for (let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
+  }
+
   return (
-    <div className="flex justify-center items-center gap-3">
+    <div className="flex justify-center items-center gap-3 mt-6">
       <button
         onClick={() => handleClick(currentPage - 1)}
         disabled={currentPage === 1}
@@ -34,17 +43,17 @@ const Pagination: React.FC<PaginationProps> = ({
       </button>
 
       <div className="flex gap-2">
-        {Array.from({ length: totalPages }, (_, index) => (
+        {pageNumbers.map((page) => (
           <button
-            key={index + 1}
-            onClick={() => handleClick(index + 1)}
+            key={page}
+            onClick={() => handleClick(page)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-              currentPage === index + 1
+              currentPage === page
                 ? "bg-blue-600 text-white shadow-md"
                 : "text-gray-600 hover:bg-gray-100"
             }`}
           >
-            {index + 1}
+            {page}
           </button>
         ))}
       </div>
