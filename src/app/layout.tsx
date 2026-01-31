@@ -11,7 +11,8 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
 
-  const hideNavBar = pathname.startsWith("/auth");
+  const hideNavBar =
+    pathname.startsWith("/auth") || pathname.startsWith("/admin/dashboard");
 
   return (
     <html lang="en">

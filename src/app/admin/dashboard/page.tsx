@@ -1,18 +1,16 @@
 "use client";
 
-import React from 'react';
-import { Plus, Loader2 } from 'lucide-react';
-import { AdminSidebar } from '@/components/shared/admin-sidebar';
-import { AdminHeader } from '@/components/shared/admin-header';
-import { RevenueTrends } from '@/components/dashboard/revenue-trends';
-import { RoomStatus } from '@/components/dashboard/room-status';
-import { RecentReservations } from '@/components/dashboard/recent-room-reservations';
-import { StatsGrid } from '@/components/dashboard/stats-grid';
-import { useDashboardData } from '@/hooks/useDashboard';
+import React from "react";
+import { AdminSidebar } from "@/components/shared/admin-sidebar";
+import { useDashboardData } from "@/hooks/useDashboard";
+import ProtectedRoute from "@/components/protected-route";
+import { Loader2, Plus } from "lucide-react";
+import { StatsGrid } from "@/components/dashboard/stats-grid";
+import { RevenueTrends } from "@/components/dashboard/revenue-trends";
+import { RoomStatus } from "@/components/dashboard/room-status";
+import { RecentReservations } from "@/components/dashboard/recent-room-reservations";
 
-// Sub-components now accepting props
-
-export default function DashboardPageContent() {
+export default function Dashboard() {
   const { data, isLoading, error } = useDashboardData();
 
   if (isLoading) {
@@ -26,11 +24,12 @@ export default function DashboardPageContent() {
   if (error || !data) return <div>Error loading dashboard.</div>;
 
   return (
-    <div className="flex h-screen w-full bg-[#f6f7f8] overflow-hidden">
-      <AdminSidebar />
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <AdminHeader />
-        <main className="flex-1 overflow-y-auto p-4 md:p-8">
+    <ProtectedRoute allowedRoles={["ADMIN"]}>
+      <div className="flex h-screen w-full bg-gray-50">
+        <AdminSidebar activePath="/dashboard" />
+
+        <main className="flex-1 overflow-y-auto p-6 md:p-8 ml-64">
+          {/* ml-64 pushes content to the right of fixed sidebar */}
           <div className="max-w-7xl mx-auto flex flex-col gap-8">
             <div className="flex justify-between items-end">
               <div>
@@ -43,7 +42,7 @@ export default function DashboardPageContent() {
             </div>
 
             <StatsGrid stats={data.stats} />
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2">
                 <RevenueTrends chartData={data.revenueHistory} />
@@ -55,6 +54,6 @@ export default function DashboardPageContent() {
           </div>
         </main>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }
