@@ -1,135 +1,102 @@
-import React from 'react';
-import { rooms } from '../src/constant/data-dummy';
-import { Pencil, Trash2 } from 'lucide-react';
+import React from "react";
+import { Pencil, Trash2 } from "lucide-react";
+import { RoomBase } from "@/src/types/api";
 
-export default function DashboardRoomDataTable() {
+const PLACEHOLDER =
+  "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=";
+
+type RoomTableProps = {
+  rooms: {
+    content: RoomBase[];
+    totalPages: number;
+    totalElements: number;
+  };
+};
+
+export default function DashboardRoomDataTable({ rooms }: RoomTableProps) {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-gray-50 border-b border-gray-200">
-              <th className="p-4 w-14">
-                <input type="checkbox" className="size-5 rounded border-gray-300" />
-              </th>
+    <div className="overflow-x-auto">
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="bg-gray-50 border-b border-gray-200">
+            <th className="p-4 w-14" />
+            <th className="p-4 text-xs font-bold text-gray-500 uppercase">
+              Room Info
+            </th>
+            <th className="p-4 text-xs font-bold text-gray-500 uppercase">
+              Type
+            </th>
+            <th className="p-4 text-xs font-bold text-gray-500 uppercase">
+              Price / Night
+            </th>
+            <th className="p-4 text-xs font-bold text-gray-500 uppercase">
+              Status
+            </th>
+            <th className="p-4 text-xs font-bold text-gray-500 uppercase">
+              Capacity
+            </th>
+            <th className="p-4 text-right text-xs font-bold text-gray-500 uppercase">
+              Actions
+            </th>
+          </tr>
+        </thead>
 
-              <th className="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Room Info
-              </th>
+        <tbody className="divide-y divide-gray-200">
+          {rooms.content.map((room) => {
+            const image = room.images?.[0]?.image || PLACEHOLDER;
 
-              <th className="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Type
-              </th>
+            return (
+              <tr key={room.id} className="hover:bg-gray-50">
+                <td className="p-4" />
 
-              <th className="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Price / Night
-              </th>
-
-              <th className="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Status
-              </th>
-
-              <th className="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Capacity
-              </th>
-
-              <th className="p-4 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Actions
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="divide-y divide-gray-200">
-            {rooms.map((room) => (
-              <tr
-                key={room.id}
-                className="hover:bg-gray-50 transition-colors"
-              >
-                <td className="p-4">
-                  <input type="checkbox" className="size-5 rounded border-gray-300" />
-                </td>
-
-                {/* Room Info */}
                 <td className="p-4">
                   <div className="flex items-center gap-3">
-                    <div className="size-12 rounded-lg bg-blue-100 flex items-center justify-center font-black text-blue-600">
-                    <img className="size-12 rounded-lg bg-blue-100 flex items-center justify-center font-black text-blue-600" src={room.images[0]} alt="" />
-                    </div>
+                    <img
+                      src={image}
+                      alt={room.hotelName}
+                      className="size-12 rounded-lg object-cover"
+                    />
                     <div>
                       <p className="font-bold text-gray-900">
-                        Room {room.hotelName}
+                        {room.hotelName}
                       </p>
-                      <p className="text-xs text-gray-500">
-                        ID: #{room.id}
-                      </p>
+                      <p className="text-xs text-gray-500">ID: #{room.id}</p>
                     </div>
                   </div>
                 </td>
 
-                {/* Room Type */}
-                <td className="p-4 text-sm font-medium text-gray-900">
-                  {room.roomType}
-                </td>
+                <td className="p-4 text-sm">{room.roomType}</td>
+                <td className="p-4 text-sm">${room.pricePerNight}</td>
 
-                {/* Price */}
-                <td className="p-4 text-sm text-gray-600">
-                  ${room.pricePerNight}
-                </td>
-
-                {/* Status */}
                 <td className="p-4">
                   <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold
-                      ${
-                        room.isAvailable === true
-                          ? 'bg-green-100 text-green-700'
-                          : room.isAvailable === false
-                          ? 'bg-red-100 text-red-700'
-                          : 'bg-yellow-100 text-yellow-700'
-                      }`}
+                    className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+                      room.isAvailable
+                        ? "bg-green-100 text-green-700"
+                        : "bg-red-100 text-red-700"
+                    }`}
                   >
-                    <span
-                      className={`size-1.5 rounded-full
-                        ${
-                          room.isAvailable === true
-                            ? 'bg-green-500'
-                            : room.isAvailable === false
-                            ? 'bg-red-500'
-                            : 'bg-yellow-500'
-                        }`}
-                    />
-                    {room.isAvailable === true ? 'Available' : 'Not Available'}
+                    {room.isAvailable ? "Available" : "Not Available"}
                   </span>
                 </td>
 
-                {/* Capacity */}
-                <td className="p-4 text-sm text-gray-500">
-                  {room.maxGuests} persons
-                </td>
+                <td className="p-4 text-sm">{room.maxGuests} persons</td>
 
-                {/* Actions */}
                 <td className="p-4 text-right">
-                  <div className="flex items-center justify-end gap-1">
-                    <button
-                      aria-label="Edit room"
-                      className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-blue-600 transition-colors"
-                    >
-                      <Pencil className="w-4 h-4" />
+                  <div className="flex justify-end gap-1">
+                    <button className="p-2 hover:bg-gray-100 rounded-lg">
+                      <Pencil size={16} />
                     </button>
-                    <button
-                      aria-label="Delete room"
-                      className="p-2 rounded-lg text-gray-500 hover:bg-red-50 hover:text-red-600 transition-colors"
-                    >
-                      <Trash2 className="w-4 h-4" />
+                    <button className="p-2 hover:bg-red-50 rounded-lg text-red-600">
+                      <Trash2 size={16} />
                     </button>
                   </div>
                 </td>
               </tr>
-            ))}
-          </tbody>
-
-        </table>
-      </div>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }

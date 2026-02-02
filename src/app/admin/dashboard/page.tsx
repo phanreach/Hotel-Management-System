@@ -1,17 +1,18 @@
 "use client";
 
-import React from "react";
-import { AdminSidebar } from "@/components/shared/admin-sidebar";
+import React, { useState } from "react";
 import { useDashboardData } from "@/hooks/useDashboard";
+import AdminSidebar from "@/components/shared/admin-sidebar";
 import ProtectedRoute from "@/components/protected-route";
 import { Loader2, Plus } from "lucide-react";
-// import { StatsGrid } from "@/components/dashboard/stats-grid";
 import { RevenueTrends } from "@/components/dashboard/revenue-trends";
-// import { RoomStatus } from "@/components/dashboard/room-status";
-// import { RecentReservations } from "@/components/dashboard/recent-room-reservations";
+import { RoomStatus } from "@/components/dashboard/room-status";
+import { RecentReservations } from "@/components/dashboard/recent-room-reservations";
+import { StatsGrid } from "@/components/dashboard/stats-grid";
 
 export default function Dashboard() {
   const { data, isLoading, error } = useDashboardData();
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   if (isLoading) {
     return (
@@ -25,11 +26,18 @@ export default function Dashboard() {
 
   return (
     <ProtectedRoute allowedRoles={["ADMIN"]}>
-      <div className="flex h-screen w-full bg-gray-50">
-        <AdminSidebar activePath="/dashboard" />
+      <div className="flex h-screen w-full bg-gray-50 overflow-hidden">
+        <AdminSidebar
+          activePath="/admin/dashboard"
+          collapsed={sidebarCollapsed}
+          onToggle={() => setSidebarCollapsed((prev) => !prev)}
+        />
 
-        <main className="flex-1 overflow-y-auto p-6 md:p-8 ml-64">
-          {/* ml-64 pushes content to the right of fixed sidebar */}
+        <main
+          className={`flex-1 overflow-y-auto p-6 md:p-8 transition-all duration-300 ${
+            sidebarCollapsed ? "ml-20" : "ml-64"
+          }`}
+        >
           <div className="max-w-7xl mx-auto flex flex-col gap-8">
             <div className="flex justify-between items-end">
               <div>
@@ -41,16 +49,16 @@ export default function Dashboard() {
               </button>
             </div>
 
-            {/* <StatsGrid stats={data.stats} /> */}
+            <StatsGrid stats={data.stats} />
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2">
                 <RevenueTrends chartData={data.revenueHistory} />
               </div>
-              {/* <RoomStatus data={data.roomStatus} /> */}
+              <RoomStatus data={data.roomStatus} />
             </div>
 
-            {/* <RecentReservations reservations={data.recentReservations} /> */}
+            <RecentReservations reservations={data.recentReservations} />
           </div>
         </main>
       </div>
