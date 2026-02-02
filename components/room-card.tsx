@@ -25,7 +25,10 @@ export default function RoomCard({ rooms }: RoomCardProps) {
           >
             <div className="relative overflow-hidden group">
               <img
-                src={room.images[0]?.image || "/images/placeholder-room.jpg"}
+                src={
+                  room.images[0]?.image ||
+                  "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+                }
                 alt={room.title}
                 className="w-full h-56 sm:h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
               />
