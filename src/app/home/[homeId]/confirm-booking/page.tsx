@@ -32,7 +32,7 @@ export default async function ConfirmBooking({ params }: Props) {
 
         <div className="lg:col-span-1">
           <div className="sticky top-24 flex flex-col gap-6">
-            <CardConfirmBooking data={RoomBooking} />
+            {/* <CardConfirmBooking data={RoomBooking} /> */}
             <ConfirmBookingPolicy />
           </div>
         </div>

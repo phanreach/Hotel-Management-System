@@ -5,10 +5,10 @@ import { AdminSidebar } from "@/components/shared/admin-sidebar";
 import { useDashboardData } from "@/hooks/useDashboard";
 import ProtectedRoute from "@/components/protected-route";
 import { Loader2, Plus } from "lucide-react";
-import { StatsGrid } from "@/components/dashboard/stats-grid";
+// import { StatsGrid } from "@/components/dashboard/stats-grid";
 import { RevenueTrends } from "@/components/dashboard/revenue-trends";
-import { RoomStatus } from "@/components/dashboard/room-status";
-import { RecentReservations } from "@/components/dashboard/recent-room-reservations";
+// import { RoomStatus } from "@/components/dashboard/room-status";
+// import { RecentReservations } from "@/components/dashboard/recent-room-reservations";
 
 export default function Dashboard() {
   const { data, isLoading, error } = useDashboardData();
@@ -41,16 +41,16 @@ export default function Dashboard() {
               </button>
             </div>
 
-            <StatsGrid stats={data.stats} />
+            {/* <StatsGrid stats={data.stats} /> */}
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2">
                 <RevenueTrends chartData={data.revenueHistory} />
               </div>
-              <RoomStatus data={data.roomStatus} />
+              {/* <RoomStatus data={data.roomStatus} /> */}
             </div>
 
-            <RecentReservations reservations={data.recentReservations} />
+            {/* <RecentReservations reservations={data.recentReservations} /> */}
           </div>
         </main>
       </div>

@@ -1,22 +1,41 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Lock, EyeOff, Loader2 } from "lucide-react";
-import { useLogin } from "@/hooks/useLogin";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import useSignUp from "@/hooks/use-signup";
 
 export default function Signup() {
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const { login, isLoading } = useLogin();
+  const router = useRouter();
+  const signup = useSignUp();
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const isLoading = signup.isPending;
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    login(data);
+
+    signup.mutate(
+      {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password,
+      },
+      {
+        onSuccess: () => {
+          router.push("/auth/login");
+        },
+      },
+    );
   };
 
   return (
-    <div className="flex min-h-screen w-full flex-row">
+    <div className="flex min-h-screen w-full bg-[#f6f7f8]">
       <div
         className="hidden lg:flex w-1/2 relative flex-col justify-end p-12 bg-cover bg-center"
         style={{
@@ -26,106 +45,75 @@ export default function Signup() {
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <div className="relative z-10 text-white max-w-lg">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-white/20 backdrop-blur-md rounded-lg">
-              <span className="text-3xl">apartment</span>
-            </div>
-            <h2 className="text-2xl font-bold">HMS</h2>
-          </div>
           <h1 className="text-4xl font-extrabold mb-4">
-            Experience luxury like never before.
+            Experience luxury like never before
           </h1>
           <p className="text-lg text-white/80">
-            Join our exclusive community to manage bookings and unlock member
-            rates.
+            Create an account to manage your bookings
           </p>
         </div>
       </div>
 
-      {/* Right Panel: Logic & Interaction */}
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-900">
-        <div className="w-full max-w-[440px] flex flex-col gap-8">
-          <header>
-            <h1 className="text-3xl font-black dark:text-white">
-              {mode === "signin" ? "Welcome back" : "Create Account"}
-            </h1>
-            <p className="text-slate-500">
-              Manage your bookings and explore exclusive offers
-            </p>
-          </header>
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 bg-white dark:bg-slate-900">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-[440px] flex flex-col gap-5"
+        >
+          <h1 className="text-3xl font-black dark:text-white">
+            Create Account
+          </h1>
 
-          {/* Tab Switcher */}
-          <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-xl">
-            {["signin", "signup"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setMode(tab as any)}
-                className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                  mode === tab
-                    ? "bg-white dark:bg-slate-700 shadow-sm text-black dark:text-white"
-                    : "text-slate-500"
-                }`}
-              >
-                {tab === "signin" ? "Sign In" : "Create Account"}
-              </button>
-            ))}
-          </div>
+          <input
+            type="text"
+            placeholder="First Name"
+            required
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          />
 
-          <form onSubmit={handleFormSubmit} className="flex flex-col gap-5">
-            <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium dark:text-white">
-                Email Address
-              </label>
-              <div className="relative">
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="name@example.com"
-                  className="w-full h-12 pl-11 pr-4 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white outline-none focus:border-blue-500"
-                />
-                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
-                  @
-                </div>
-              </div>
-            </div>
+          <input
+            type="text"
+            placeholder="Last Name"
+            required
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className="h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          />
 
-            <div className="flex flex-col gap-1.5">
-              <div className="flex justify-between items-center text-sm font-medium">
-                <label className="dark:text-white">Password</label>
-                <a href="#" className="text-blue-600">
-                  Forgot password?
-                </a>
-              </div>
-              <div className="relative">
-                <input
-                  name="password"
-                  type="password"
-                  required
-                  placeholder="••••••••"
-                  className="w-full h-12 pl-11 pr-4 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white outline-none focus:border-blue-500"
-                />
-                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
-                  #
-                </div>
-              </div>
-            </div>
+          {/* Email */}
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          />
 
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2"
-            >
-              {isLoading ? (
-                <Loader2 className="animate-spin w-5 h-5" />
-              ) : mode === "signin" ? (
-                "Sign In"
-              ) : (
-                "Sign Up"
-              )}
-            </button>
-          </form>
-        </div>
+          {/* Password */}
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          />
+
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl flex items-center justify-center"
+          >
+            {isLoading ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              "Sign Up"
+            )}
+          </button>
+        </form>
       </div>
     </div>
   );

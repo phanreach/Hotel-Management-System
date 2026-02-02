@@ -3,6 +3,7 @@ export const API_ENDPOINT = {
   LOGIN: "/api/auth/login",
   PROFILE: "auth/profile",
   LOGOUT: "auth/logout",
+  REGISTER: "/api/auth/register",
 
   ROOMS: "/api/rooms",
 };

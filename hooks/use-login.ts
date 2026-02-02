@@ -16,11 +16,15 @@ export type LoginResponse = {
   user_id: number;
   email: string;
   role: string;
+  first_name: string;
+  last_name: string;
 };
 
 export default function useLogin() {
   return useMutation({
     mutationFn: async ({ email, password }: LoginPayload) => {
+      console.log("REGISTER URL", API_ENDPOINT.LOGIN);
+
       const res = await api.post<LoginResponse>(API_ENDPOINT.LOGIN, {
         email,
         password,
@@ -35,7 +39,8 @@ export default function useLogin() {
       Cookies.set("role", data.role);
       Cookies.set("email", data.email);
       Cookies.set("user_id", String(data.user_id));
-
+      Cookies.set("first_name", data.first_name);
+      Cookies.set("last_name", data.last_name);
       console.log("Login success", data);
     },
 

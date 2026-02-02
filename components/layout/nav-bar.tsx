@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -15,7 +16,9 @@ export default function NavBar() {
 
   useEffect(() => {
     const firstName = Cookies.get("first_name");
-    setUsername(firstName ?? null);
+    console.log("Cookies first_name:", firstName);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (firstName) setUsername(firstName);
   }, []);
 
   const firstLetter = username?.charAt(0).toUpperCase() ?? "";
@@ -40,11 +43,10 @@ export default function NavBar() {
     Cookies.remove("first_name");
     Cookies.remove("last_name");
 
-    setUsername(null); // hide profile
+    setUsername(null);
     router.push("/auth/login");
   };
 
-  // Close profile dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (

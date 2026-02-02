@@ -40,14 +40,14 @@ export default function CardConfirmBooking({ data }: Props) {
           <div className="flex justify-between">
             <div>
               <p className="text-xs font-semibold uppercase">Check-in</p>
-              <p className="text-sm font-bold">{data.checkIn.date}</p>
-              <p className="text-xs">{data.checkIn.time}</p>
+              {/* <p className="text-sm font-bold">{data.checkIn.date}</p>
+              <p className="text-xs">{data.checkIn.time}</p> */}
             </div>
 
             <div className="text-right">
               <p className="text-xs font-semibold uppercase">Check-out</p>
-              <p className="text-sm font-bold">{data.checkOut.date}</p>
-              <p className="text-xs">{data.checkOut.time}</p>
+              {/* <p className="text-sm font-bold">{data.checkOut.date}</p>
+              <p className="text-xs">{data.checkOut.time}</p> */}
             </div>
           </div>
 
