@@ -21,7 +21,7 @@ export type RoomBooking = {
 
 export type RoomImage = {
   id: number;
-  image: string;
+  images: string;
 };
 export type RoomBase = {
   id: number;
@@ -31,7 +31,7 @@ export type RoomBase = {
   pricePerNight: number;
 
   rating?: number;
-  maxGuests?: number;
+  maxGuest?: number;
   amenities?: Amenity[];
   isAvailable?: boolean;
   roomType?: string;

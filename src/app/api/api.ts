@@ -11,25 +11,17 @@ if (!VITE_BASE_URL) {
 
 const api = axios.create({
   baseURL: VITE_BASE_URL,
-  withCredentials: false,
+  withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
-  const token = Cookies.get("accessToken");
-  const isLoginRequest = config.url?.includes("/login");
+  if (config.method === "options") return config;
 
-  if (!token && !isLoginRequest) {
-    return Promise.reject(
-      new axios.Cancel("Redirected to login: No auth token"),
-    );
-  }
+  const token = Cookies.get("accessToken");
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-
-  config.headers["Content-Type"] =
-    config.data instanceof FormData ? undefined : "application/json";
 
   return config;
 });

@@ -20,7 +20,6 @@ export default function Home() {
     return <div>Error loading rooms.</div>;
   }
 
-  // console.log("Home rooms:", rooms);
   return (
     <div className="bg-gray-100">
       <Header />
