@@ -186,9 +186,8 @@ export default function AddRoom() {
                 <InputFieldWithGuide
                   title="Room Type"
                   required
-                  guideText="Select the room type."
-                  type="dropdown"
-                  option={roomTypes.map((r, i) => ({ id: i, value: r }))}
+                  guideText="Enter the room type."
+                  type="text"
                   value={roomType}
                   onChange={(e) => setRoomType(e.target.value)}
                 />
@@ -196,12 +195,8 @@ export default function AddRoom() {
                 <InputFieldWithGuide
                   title="Bed Size"
                   required
-                  guideText="Select the bed size."
-                  type="dropdown"
-                  option={bedSizes.map((label, index) => ({
-                    id: index,
-                    value: label,
-                  }))}
+                  guideText="Enter the bed size (e.g., Twin, Queen, King)."
+                  type="number"
                   value={bedSize.toString()}
                   onChange={(e) => setBedSize(Number(e.target.value))}
                 />
@@ -209,9 +204,8 @@ export default function AddRoom() {
                 <InputFieldWithGuide
                   title="Bed Type"
                   required
-                  guideText="Select the bed type."
-                  type="dropdown"
-                  option={bedTypes.map((r, i) => ({ id: i, value: r }))}
+                  guideText="Enter the bed type (e.g., Soft, Memory Foam)."
+                  type="text"
                   value={bedType}
                   onChange={(e) => setBedType(e.target.value)}
                 />
