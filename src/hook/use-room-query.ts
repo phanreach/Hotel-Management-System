@@ -9,7 +9,7 @@ type PaginatedRooms = {
 export default function UseRoomQuery(page: number = 0, size: number = 6) {
   const apiFn = async (): Promise<PaginatedRooms> => {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/rooms?page=${page}&size=${size}`
+      `${process.env.NEXT_PUBLIC_API_URL}/api/rooms?page=${page}&size=${size}`,
     );
 
     if (!res.ok) {
