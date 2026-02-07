@@ -52,7 +52,7 @@ export const refreshToken = async (): Promise<string | null> => {
     const token = Cookies.get("token");
     if (!token) return null;
 
-    const response = await axios.post(`${NEXT_PUBLIC_API_URL}/auth/refresh`, {
+    const response = await axios.post(`${BASE_URL}/auth/refresh`, {
       refreshToken: token,
     });
 
