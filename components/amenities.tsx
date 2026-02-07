@@ -3,9 +3,12 @@
 import { useState } from "react";
 import { amenitiesData } from "@/src/constant/data-dummy";
 import Icon from "@/src/assets/icon/icon-asset";
+import useAmenitiesQuery from "@/src/hook/use-aminities";
 
 export default function Amenities() {
   const [selected, setSelected] = useState<string[]>([]);
+  const { data } = useAmenitiesQuery();
+  const amenitiesData = data || [];
 
   const toggleAmenity = (id: string) => {
     setSelected((prev) =>
@@ -28,7 +31,7 @@ export default function Amenities() {
                   name={amenity.icon as keyof typeof Icon}
                   className="text-gray-500"
                 />
-                <p className="text-sm">{amenity.label}</p>
+                <p className="text-sm">{amenity.name}</p>
               </div>
 
               <label className="relative inline-flex items-center cursor-pointer">

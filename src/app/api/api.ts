@@ -78,4 +78,6 @@ export const refreshToken = async (): Promise<string | null> => {
 export const logoutApi = () =>
   api.post<{ message: string }>(API_ENDPOINT.LOGOUT);
 
+export const getAmenitiesApi = () => api.get(API_ENDPOINT.AMENITIES);
+
 export default api;
