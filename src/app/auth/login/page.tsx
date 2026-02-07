@@ -9,7 +9,6 @@ import useLogin from "@/hooks/use-login";
 export default function LoginPageContent() {
   const router = useRouter();
 
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [showPassword, setShowPassword] = useState(false);
 
   const loginMutation = useLogin();
@@ -59,122 +58,147 @@ export default function LoginPageContent() {
   };
 
   return (
-    <div className="flex min-h-screen w-full flex-row font-display bg-[#f6f7f8]">
+    <div className="flex min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Left Side - Hero Section */}
       <div
-        className="hidden lg:flex w-1/2 relative flex-col justify-end p-12 overflow-hidden bg-cover bg-center"
+        className="hidden lg:flex w-1/2 relative flex-col justify-end p-12 bg-cover bg-center"
         style={{
           backgroundImage:
             'url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=2070")',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
 
-        <div className="relative z-10 text-white max-w-lg">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-white/20 backdrop-blur-md rounded-lg">
+        <div className="relative z-10 text-white max-w-lg space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
               <House className="w-8 h-8" />
             </div>
             <h2 className="text-2xl font-bold tracking-tight">HMS</h2>
           </div>
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight mb-4">
-            Experience luxury like never before.
+          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <span className="text-sm font-medium">✨ Premium Experience</span>
+          </div>
+          <h1 className="text-5xl font-bold leading-tight">
+            Experience luxury like never before
           </h1>
-          <p className="text-lg text-white/80 leading-relaxed">
+          <p className="text-lg text-white/90 leading-relaxed">
             Join our exclusive community to manage your bookings, discover
             hidden gems, and unlock members-only rates at over 500 destinations
-            worldwide.
+            worldwide
           </p>
         </div>
       </div>
 
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-6 sm:p-12 md:p-16 bg-white relative">
-        <div className="w-full max-w-[440px] flex flex-col gap-8">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-black">
-              {mode === "signin" ? "Welcome back" : "Create Account"}
-            </h1>
-            <p className="text-[#617589]">
-              Manage your bookings and explore exclusive offers
-            </p>
-          </div>
-
-          <div className="flex p-1 bg-[#f0f2f4] rounded-xl">
-            <button
-              onClick={() => setMode("signin")}
-              className={`flex-1 py-2.5 rounded-lg ${
-                mode === "signin" ? "bg-white shadow" : "text-[#617589]"
-              }`}
-            >
-              Sign In
-            </button>
-            <button
-              onClick={() => setMode("signup")}
-              className={`flex-1 py-2.5 rounded-lg ${
-                mode === "signup" ? "bg-white shadow" : "text-[#617589]"
-              }`}
-            >
-              Create Account
-            </button>
-          </div>
-
-          {backendError && (
-            <div className="text-red-500 text-sm">{backendError}</div>
-          )}
-
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <div>
-              <div className="relative">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-12 rounded-xl border px-4 pl-11"
-                  placeholder="name@example.com"
-                />
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2" />
-              </div>
-              {errors.email && (
-                <p className="text-red-500 text-sm">{errors.email}</p>
-              )}
+      {/* Right Side - Form Section */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
+        <div className="w-full max-w-[460px]">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 lg:p-10 space-y-6"
+          >
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold text-slate-900">
+                Welcome back
+              </h1>
+              <p className="text-slate-600">
+                Manage your bookings and explore exclusive offers
+              </p>
             </div>
 
-            <div>
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full h-12 rounded-xl border px-4 pl-11"
-                  placeholder="Enter your password"
-                />
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2" />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2"
-                >
-                  {showPassword ? <Eye /> : <EyeOff />}
-                </button>
+            {/* Backend Error Alert */}
+            {backendError && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-sm text-red-600">{backendError}</p>
               </div>
-              {errors.password && (
-                <p className="text-red-500 text-sm">{errors.password}</p>
-              )}
+            )}
+
+            <div className="space-y-4">
+              {/* Email */}
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-700">
+                  Email Address
+                </label>
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full h-12 px-4 pl-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
+                    placeholder="you@example.com"
+                  />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                </div>
+                {errors.email && (
+                  <p className="text-sm text-red-600">{errors.email}</p>
+                )}
+              </div>
+
+              {/* Password */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm font-medium text-slate-700">
+                    Password
+                  </label>
+                  <a
+                    href="#"
+                    className="text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full h-12 px-4 pl-11 pr-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
+                    placeholder="Enter your password"
+                  />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                  >
+                    {showPassword ? (
+                      <Eye className="w-5 h-5" />
+                    ) : (
+                      <EyeOff className="w-5 h-5" />
+                    )}
+                  </button>
+                </div>
+                {errors.password && (
+                  <p className="text-sm text-red-600">{errors.password}</p>
+                )}
+              </div>
             </div>
 
-            {/* Submit */}
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
-              className="h-12 rounded-xl bg-[#137fec] text-white font-bold"
+              className="w-full h-12 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold rounded-lg flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40"
             >
               {loading ? (
-                <Loader2 className="animate-spin mx-auto" />
-              ) : mode === "signin" ? (
-                "Sign In"
+                <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
-                "Create Account"
+                "Sign In"
               )}
             </button>
+
+            {/* Sign Up Link */}
+            <div className="pt-4 border-t border-slate-200">
+              <p className="text-center text-slate-600">
+                Don't have an account?{" "}
+                <a
+                  href="/auth/signup"
+                  className="text-blue-600 font-semibold hover:text-blue-700 hover:underline transition-colors"
+                >
+                  Sign up
+                </a>
+              </p>
+            </div>
           </form>
         </div>
       </div>

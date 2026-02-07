@@ -23,7 +23,7 @@ export default function useRoomMutation() {
 
   return useMutation({
     mutationFn: async (payload: createRoomPayload) => {
-      const res = await api.post(`/api/rooms`, payload);
+      const res = await api.post(API_ENDPOINT.ROOMS, payload);
 
       return res.data;
     },

@@ -3,14 +3,16 @@ import Cookies from "js-cookie";
 import { toast } from "sonner";
 import { API_ENDPOINT } from "./endpoint";
 
-const VITE_BASE_URL = "http://localhost:8081";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-if (!VITE_BASE_URL) {
-  throw new Error("VITE_BASE_URL is not defined in environment variables.");
+if (!BASE_URL) {
+  throw new Error(
+    "NEXT_PUBLIC_API_URL is not defined in environment variables.",
+  );
 }
 
 const api = axios.create({
-  baseURL: VITE_BASE_URL,
+  baseURL: BASE_URL,
   withCredentials: true,
 });
 
@@ -50,7 +52,7 @@ export const refreshToken = async (): Promise<string | null> => {
     const token = Cookies.get("token");
     if (!token) return null;
 
-    const response = await axios.post(`${VITE_BASE_URL}/auth/refresh`, {
+    const response = await axios.post(`${NEXT_PUBLIC_API_URL}/auth/refresh`, {
       refreshToken: token,
     });
 
