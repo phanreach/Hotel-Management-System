@@ -28,7 +28,7 @@ export type RoomBase = {
   id: number;
   title: string;
   description: string;
-  images: string[];
+  images: RoomImage[];
   pricePerNight: number;
 
   rating?: number;
