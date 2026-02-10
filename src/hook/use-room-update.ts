@@ -18,7 +18,7 @@ export type UpdateRoom = {
   rating: number;
   maxGuest: number;
   amenities: { id: number }[];
-  images: string[];
+  images: { id: number }[];
 };
 
 export const updateRoom = async ({ id, payload }: UpdateRoomPayload) => {
