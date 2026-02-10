@@ -8,17 +8,36 @@ export type Amenity = {
 };
 
 export type RoomBooking = {
-  id: number;
-  customerName: string;
-  startDate: string;
-  endDate: string;
-  nights: number;
-  taxes: number;
-  discount: number;
-  guests: number;
-  address: string;
+  bookingId: number;
+  bookerName: string | null;
+  roomResponse: {
+    id: number;
+    title: string;
+    description: string | null;
+    amenities: any[]; // you can replace `any` with a proper Amenity type if you have one
+    pricePerNight: number;
+    roomType: string | null;
+    bedSize: string | null;
+    bedType: string | null;
+    rating: number | null;
+    maxGuest: number | null;
+    images: string[];
+  };
+  checkInDate: string;
+  checkOutDate: string;
+  totalPrice: number;
   status: "PENDING" | "CONFIRMED" | "CANCELLED";
+  guest: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+  };
+  nights: number;
 };
+
+
 
 export type RoomImage = {
   id: number;
@@ -42,6 +61,7 @@ export type RoomBase = {
   serviceFee?: number;
   cleaningFee?: number;
   hotelName?: string;
+  guests?: number;
 
   checkinDate?: string;
   checkoutDate?: string;
@@ -65,10 +85,42 @@ export type BookingSummary = {
   roomType: string;
 };
 
-export type RoomWithBooking = RoomBase & RoomBooking;
+export type RoomWithBooking = RoomBase & Partial<RoomBooking>;
 
 export type Payment = {
   id: number;
   detail: string;
 };
-export type BookingStatus = "upcoming" | "completed" | "cancelled";
+export type BookingStatus = "PENDING" | "CONFIRMED" | "CANCELLED";
+
+export type BookingPreview = {
+  roomId: number;
+
+  title: string;
+  hotelName?: string;
+  address: string;
+  roomType?: string;
+  images: string[];
+
+  pricePerNight: number;
+  nights: number;
+  guests?: number;
+
+  taxes: number;
+  discount: number;
+  total: number;
+};
+export type Guest = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  specialRequest: string;
+};
+
+export type BookingPayload = {
+  roomId: number;
+  checkInDate: string;
+  checkOutDate: string;
+  guest: Guest;
+};

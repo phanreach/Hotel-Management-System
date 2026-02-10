@@ -2,6 +2,7 @@ import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
 import { API_ENDPOINT } from "./endpoint";
+import { RoomBooking } from "@/src/types/api";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -73,5 +74,26 @@ export const logoutApi = () =>
   api.post<{ message: string }>(API_ENDPOINT.LOGOUT);
 
 export const getAmenitiesApi = () => api.get(API_ENDPOINT.AMENITIES);
+
+export const fetchMyBookings = async (): Promise<RoomBooking[]> => {
+  const token = Cookies.get("accessToken");
+
+  if (!token) {
+    throw new Error("Not authenticated");
+  }
+
+  const res = await fetch(`${BASE_URL}/api/bookings/me`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch bookings");
+  }
+
+  return res.json();
+};
 
 export default api;

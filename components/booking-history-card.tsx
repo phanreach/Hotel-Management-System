@@ -1,10 +1,11 @@
 "use client";
 
 import { statusConfig } from "@/src/constant/data-dummy";
-import { BookingSummary } from "@/src/types/api";
+import { RoomBooking } from "@/src/types/api";
+// import { BookingSummary } from "@/src/types/api";
 
 type Props = {
-  data: BookingSummary;
+  data: RoomBooking;
 };
 
 export default function BookingHistoryCard({ data }: Props) {
@@ -17,8 +18,8 @@ export default function BookingHistoryCard({ data }: Props) {
       {/* Image */}
       <div className="relative w-full md:w-64 aspect-video md:aspect-[4/3] rounded-lg overflow-hidden shrink-0">
         <img
-          src={data.imageUrl}
-          alt={data.hotelName}
+          src={data.roomResponse.images[0]}
+          alt={data.roomResponse.title}
           className="w-full h-full object-cover"
           loading="lazy"
         />
@@ -34,16 +35,16 @@ export default function BookingHistoryCard({ data }: Props) {
       <div className="flex flex-1 flex-col justify-between gap-4">
         <div className="space-y-1">
           <p className="text-blue-600 text-sm font-bold uppercase">
-            {/* {data.status} • #BK-7829 */}
+            {data.status}
           </p>
 
-          <h3 className="text-gray-900 text-xl font-bold">{data.hotelName}</h3>
+          <h3 className="text-gray-900 text-xl font-bold">{data.roomResponse.title}</h3>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-gray-500 text-sm">
             <span>
-              {/* {data.checkIn.date} – {data.checkOut.date} ({data.nights} Nights) */}
+              {data.checkInDate} – {data.checkOutDate} ({data.nights} Nights)
             </span>
-            <span>• {data.roomType}</span>
+            <span>• {data.roomResponse.bedType}</span>
           </div>
 
           {/* <p className="text-gray-500 text-sm">{data.address}</p> */}
@@ -52,7 +53,7 @@ export default function BookingHistoryCard({ data }: Props) {
         {/* Footer */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-gray-100">
           <p className="text-gray-900 text-lg font-bold">
-            {/* ${total.toFixed(2)} */}
+            ${data.totalPrice.toFixed(2)}
             <span className="text-sm font-normal text-gray-500"> / Total</span>
           </p>
 
@@ -62,7 +63,7 @@ export default function BookingHistoryCard({ data }: Props) {
             </button>
 
             <button className="flex-1 md:flex-none h-10 px-6 rounded-lg bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 shadow-sm">
-              {/* {status.primaryAction} */}
+              {data.status === "PENDING" ? "Cancel Booking" : "Rebook"}
             </button>
           </div>
         </div>

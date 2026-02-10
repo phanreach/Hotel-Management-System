@@ -10,5 +10,10 @@ export const API_ENDPOINT = {
   UPDATE_ROOM: (Id: number) => `/api/rooms/${Id}`,
   UPDATE_ROOM_IMAGE: (imageId: number) => `/api/rooms/images/${imageId}`,
   AMENITIES: "/api/amenities",
+
+  //booking
+  BOOKINGS: "/api/bookings",
+  MY_BOOKINGS: "/api/bookings/me",
+
 };
 export type ApiEndpointProps = (typeof API_ENDPOINT)[keyof typeof API_ENDPOINT];
