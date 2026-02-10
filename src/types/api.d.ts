@@ -2,8 +2,8 @@ import { LucideIcon } from "lucide-react";
 
 export type Amenity = {
   id: string;
-  name: string;
-  icon: string;
+  name?: string;
+  icon?: string;
   // description?: string;
 };
 

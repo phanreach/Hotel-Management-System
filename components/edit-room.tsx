@@ -1,14 +1,21 @@
+"use client";
+
 import { useEffect, useState, useRef } from "react";
 import { X, Upload, ImagePlus as Img } from "lucide-react";
-import useRoomMutation from "@/src/hook/use-room-mutation"; // assume this has update too
 import useRoomImageMutation from "@/src/hook/use-room-image-mutation";
 import InputFieldWithGuide from "./input-field-with-guide";
 import { RoomBase } from "@/src/types/api";
-
+import { updateRoom } from "@/src/hook/use-room-update";
+import useUpdateRoomImage from "@/src/hook/use-update-room-image";
 interface EditRoomProps {
   room: RoomBase;
   onClose: () => void;
 }
+
+type ExistingImage = {
+  id: number;
+  url: string;
+};
 
 export default function EditRoom({ room, onClose }: EditRoomProps) {
   const [title, setTitle] = useState(room.title || "");
@@ -22,20 +29,26 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
   const [amenities, setAmenities] = useState<string[]>(
     room.amenities?.map((a) => a.id.toString()) || [],
   );
-  const [existingImages, setExistingImages] = useState<string[]>(
-    room.images || [],
+  const [existingImages, setExistingImages] = useState<ExistingImage[]>(
+    room.images?.map((img: any) => ({
+      id: img.id,
+      url: img.url,
+    })) ?? [],
   );
-  const [newPreviews, setNewPreviews] = useState<string[]>([]);
+
   const [newFiles, setNewFiles] = useState<File[]>([]);
+  const [newPreviews, setNewPreviews] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasChanged, setHasChanged] = useState(false);
 
-  const { mutateAsync: updateRoom } = useRoomMutation();
   const { mutateAsync: addRoomImages } = useRoomImageMutation();
-
+  const { mutateAsync: updateRoomImage } = useUpdateRoomImage();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    const originalImageIds = room.images?.map((i: any) => i.id).join(",") ?? "";
+    const currentImageIds = existingImages.map((i) => i.id).join(",");
+
     const changed =
       title !== room.title ||
       description !== room.description ||
@@ -46,7 +59,7 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
       pricePerNight !== room.pricePerNight ||
       rating !== room.rating ||
       amenities.join(",") !== room.amenities?.map((a) => a.id).join(",") ||
-      existingImages.join(",") !== room.images?.join(",") ||
+      currentImageIds !== originalImageIds ||
       newFiles.length > 0;
 
     setHasChanged(changed);
@@ -66,17 +79,30 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
   ]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || []);
+    const files = Array.from(e.target.files ?? []);
     if (!files.length) return;
 
-    const newUrls = files.map((file) => URL.createObjectURL(file));
-
     setNewFiles((prev) => [...prev, ...files]);
-    setNewPreviews((prev) => [...prev, ...newUrls]);
+    setNewPreviews((prev) => [
+      ...prev,
+      ...files.map((f) => URL.createObjectURL(f)),
+    ]);
+
+    e.target.value = "";
   };
 
-  const removeExistingImage = (index: number) => {
-    setExistingImages((prev) => prev.filter((_, i) => i !== index));
+  const handleReplaceExistingImage = async (imageId: number, file: File) => {
+    await updateRoomImage({ imageId, image: file });
+
+    setExistingImages((prev) =>
+      prev.map((img) => {
+        if (img.id === imageId) {
+          URL.revokeObjectURL(img.url);
+          return { ...img, url: URL.createObjectURL(file) };
+        }
+        return img;
+      }),
+    );
   };
 
   const removeNewImage = (index: number) => {
@@ -90,26 +116,32 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
 
     setLoading(true);
     try {
-      const payload = {
-        title,
-        description,
-        roomType,
-        bedSize,
-        bedType,
-        maxGuests,
-        pricePerNight,
-        rating,
-        amenities: amenities.map((id) => ({ id: Number(id) })),
-      };
+      await updateRoom({
+        id: room.id,
+        payload: {
+          title,
+          description,
+          roomType,
+          bedSize,
+          bedType,
+          maxGuest: maxGuests,
+          pricePerNight,
+          rating,
+          amenities: amenities.map((id) => ({ id: Number(id) })),
+          images: existingImages.map((i) => ({ id: i.id })),
+        },
+      });
 
-      // await updateRoom({ id: room.id, payload });
-
-      if (newFiles.length > 0) {
-        await addRoomImages({ roomId: room.id, images: newFiles });
+      if (newFiles.length) {
+        await addRoomImages({
+          roomId: room.id,
+          images: newFiles,
+        });
       }
+
       onClose();
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      console.error(e);
       alert("Failed to update room");
     } finally {
       setLoading(false);
@@ -249,7 +281,7 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div>
             <label className="font-semibold flex items-center gap-2">
               <Img size={20} /> Room Images
             </label>
@@ -258,49 +290,65 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
               ref={fileInputRef}
               type="file"
               multiple
-              accept="image/*"
               hidden
+              accept="image/*"
               onChange={handleImageChange}
             />
 
-            <div className="flex flex-wrap gap-4">
-              {existingImages.map((src, i) => (
-                <div key={`existing-${i}`} className="relative w-32 h-32 group">
+            <div className="flex flex-wrap gap-4 mt-3">
+              {existingImages.map((img) => (
+                <div key={img.id} className="relative w-32 h-32 group">
                   <img
-                    src={src}
-                    alt={`room image ${i + 1}`}
+                    src={img.url}
                     className="w-full h-full object-cover rounded-lg border"
                   />
+
+                  <label className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-2 py-1 rounded cursor-pointer opacity-0 group-hover:opacity-100">
+                    Replace
+                    <input
+                      type="file"
+                      hidden
+                      accept="image/*"
+                      onChange={(e) =>
+                        e.target.files &&
+                        handleReplaceExistingImage(img.id, e.target.files[0])
+                      }
+                    />
+                  </label>
+
                   <button
-                    onClick={() => removeExistingImage(i)}
-                    className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={() =>
+                      setExistingImages((prev) =>
+                        prev.filter((i) => i.id !== img.id),
+                      )
+                    }
+                    className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100"
                   >
-                    <X size={16} />
+                    <X size={14} />
                   </button>
                 </div>
               ))}
 
               {newPreviews.map((src, i) => (
-                <div key={`new-${i}`} className="relative w-32 h-32 group">
+                <div key={i} className="relative w-32 h-32 group">
                   <img
                     src={src}
-                    alt={`new preview ${i + 1}`}
                     className="w-full h-full object-cover rounded-lg border"
                   />
                   <button
                     onClick={() => removeNewImage(i)}
-                    className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded-full"
                   >
-                    <X size={16} />
+                    <X size={14} />
                   </button>
                 </div>
               ))}
 
               <div
                 onClick={() => fileInputRef.current?.click()}
-                className="w-32 h-32 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer hover:border-blue-400 transition-colors"
+                className="w-32 h-32 border-2 border-dashed flex items-center justify-center cursor-pointer"
               >
-                <Upload className="text-gray-400" size={32} />
+                <Upload />
               </div>
             </div>
           </div>

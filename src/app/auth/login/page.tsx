@@ -140,12 +140,6 @@ export default function LoginPageContent() {
                   <label className="text-sm font-medium text-slate-700">
                     Password
                   </label>
-                  <a
-                    href="#"
-                    className="text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
-                  >
-                    Forgot password?
-                  </a>
                 </div>
                 <div className="relative">
                   <input

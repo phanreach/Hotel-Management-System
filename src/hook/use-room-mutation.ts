@@ -14,7 +14,7 @@ export type createRoomPayload = {
   bedSize: number;
   bedType: string;
   rating: number;
-  maxGuests: number;
+  maxGuest: number;
   amenities: Amenity[];
 };
 
