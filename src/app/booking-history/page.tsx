@@ -1,29 +1,41 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookingHistoryCard from "@/components/booking-history-card";
 import BookingHistoryHeader from "@/components/booking-history-header";
 import BookinghistoryStatus from "@/components/booking-history-status";
-import { bookingSummaries } from "@/src/constant/data-dummy";
+// import { bookingSummaries } from "@/src/constant/data-dummy";
 import { BookingStatus } from "@/src/types/api";
 import BookingHistoryPagination from "@/components/booking-history-pagination";
+import useMyBookingsQuery from "@/src/hook/useMyBookings";
 
 export default function BookingHistory() {
+  const [mounted, setMounted] = useState(false);
   const [status, setStatus] = useState<BookingStatus | "all">("all");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  const filtered =
+  const { data: bookings = [], isLoading, error } = useMyBookingsQuery();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // ✅ prevents hydration mismatch
+
+
+  
+   const filtered =
     status === "all"
-      ? bookingSummaries
-      : bookingSummaries.filter((b) => b.status === status);
+      ? bookings
+      : bookings.filter((b) => b.status === status);
+
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
-  console.log("filtered length:", filtered.length);
-  console.log("totalPages:", totalPages);
 
   const currentItems = filtered.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
@@ -35,29 +47,34 @@ export default function BookingHistory() {
           <BookinghistoryStatus value={status} onChange={setStatus} />
         </div>
 
-        {/* Booking List */}
+            {isLoading ? (
+        <p className="text-center mt-10">Loading...</p>
+      ) : error ? (
+        <p className="text-center mt-10 text-red-500">
+          {(error as Error).message}
+        </p>
+      ) : currentItems.length === 0 ? (
+        <EmptyState />
+      ) : (
         <section className="flex flex-col gap-4">
-          {currentItems.length === 0 ? (
-            <EmptyState />
-          ) : (
-            currentItems.map((booking) => (
-              <div
-                key={booking.id ?? booking.hotelName}
-                className="transition-transform hover:-translate-y-0.5"
-              >
-                <BookingHistoryCard data={booking} />
-              </div>
-            ))
-          )}
+          {currentItems.map((booking: any) => (
+            <div
+              key={booking.bookingId ?? booking.room?.title}
+              className="transition-transform hover:-translate-y-0.5"
+            >
+              <BookingHistoryCard data={booking} />
+            </div>
+          ))}
         </section>
+      )}
         {/* Pagination */}
-        {totalPages > 1 && (
-          <BookingHistoryPagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            onChange={setCurrentPage}
-          />
-        )}
+        {!isLoading && !error && totalPages > 1 && (
+  <BookingHistoryPagination
+    totalPages={totalPages}
+    currentPage={currentPage}
+    onChange={setCurrentPage}
+  />
+)}
       </div>
     </main>
   );

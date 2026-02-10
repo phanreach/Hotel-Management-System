@@ -8,11 +8,22 @@ interface RoomDetailBookProps {
 }
 
 export default function RoomDetailBook({ room }: RoomDetailBookProps) {
-  const [checkIn, setCheckIn] = useState(room?.checkinDate || "2023-10-12");
-  const [checkOut, setCheckOut] = useState(room?.checkoutDate || "2023-10-15");
+  const today = new Date();
+const tomorrow = new Date();
+tomorrow.setDate(today.getDate() + 1);
 
-  const cleaningFee = room?.cleaningFee ?? 50;
-  const serviceFee = room?.serviceFee ?? 40;
+// format as "YYYY-MM-DD" for backend
+const formatDate = (date: Date) =>
+  date.toISOString().split("T")[0];
+
+  const [checkIn, setCheckIn] = useState(room?.checkinDate ||formatDate(today)
+);
+  const [checkOut, setCheckOut] = useState(room?.checkoutDate ||  formatDate(tomorrow));
+  const [guests, setGuests] = useState(1);
+
+  // const cleaningFee = room?.cleaningFee ?? 50;
+  // const serviceFee = room?.serviceFee ?? 40;
+
 
   const numberOfNights = useMemo(() => {
     const start = new Date(checkIn);
@@ -23,7 +34,8 @@ export default function RoomDetailBook({ room }: RoomDetailBookProps) {
   }, [checkIn, checkOut]);
 
   const totalBasePrice = (room?.pricePerNight ?? 0) * numberOfNights;
-  const totalPrice = totalBasePrice + cleaningFee + serviceFee;
+  // const totalPrice = totalBasePrice + cleaningFee + serviceFee;
+  const totalPrice = totalBasePrice;
 
   if (!room) return <div>Room not found</div>;
 
@@ -71,22 +83,27 @@ export default function RoomDetailBook({ room }: RoomDetailBookProps) {
             </div>
           </div>
 
+        {/* Guests selector */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
+            <label className="text-xs font-bold text-gray-600 uppercase">
               Guests
             </label>
-            <div className="relative">
-              <select className="w-full h-10 rounded-lg border border-gray-300 bg-transparent px-3 text-sm font-medium text-[#111418] focus:ring-2 focus:ring-blue-500 outline-none appearance-none">
-                <option className="text-black">2 Adults, 0 Children</option>
-                <option className="text-black">2 Adults, 1 Child</option>
-                <option className="text-black">1 Adult</option>
-              </select>
-              <span className="material-symbols-outlined absolute right-2 top-2 text-gray-400 text-lg pointer-events-none">
-                expand_more
-              </span>
-            </div>
+            <select
+              value={guests}
+              onChange={(e) => setGuests(Number(e.target.value))}
+              className="w-full h-10 rounded-lg border border-gray-300 bg-transparent px-3 text-sm font-medium"
+            >
+              {Array.from({ length: room.guests ?? 1}, (_, i) => i + 1).map(
+                (num) => (
+                  <option key={num} value={num}>
+                    {num} Guest{num > 1 ? "s" : ""}
+                  </option>
+                )
+              )}
+            </select>
           </div>
         </div>
+      
         <div className="flex flex-col gap-3 py-4">
           <div className="flex justify-between text-sm text-gray-600">
             <span>
@@ -94,25 +111,26 @@ export default function RoomDetailBook({ room }: RoomDetailBookProps) {
             </span>
             <span>${totalBasePrice}</span>
           </div>
-          <div className="flex justify-between text-sm text-gray-600">
+          {/* <div className="flex justify-between text-sm text-gray-600">
             <span>Cleaning Fee</span>
             <span>${cleaningFee}</span>
           </div>
           <div className="flex justify-between text-sm text-gray-600">
             <span>Service Fee</span>
-            <span>${serviceFee}</span>
-          </div>
+            <span>${serviceFee}</span> */}
+          {/* </div> */}
           <div className="h-px bg-gray-200 my-1"></div>
           <div className="flex justify-between items-center">
             <span className="font-bold text-[#111418]">Total (USD)</span>
             <span className="font-black text-xl text-[#111418]">
-              ${numberOfNights > 0 ? totalPrice : cleaningFee + serviceFee}
+              {/* ${numberOfNights > 0 ? totalPrice : cleaningFee + serviceFee} */}
+              ${numberOfNights > 0 ? totalPrice : 0}
             </span>
           </div>
         </div>
 
         <Link
-          href={`/home/${room.id}/confirm-booking`}
+          href={`/home/${room.id}/confirm-booking?checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}&numberOfNights=${numberOfNights}`}
           className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg shadow-blue-500/30 transition-all flex items-center justify-center gap-2 text-base"
         >
           Book Now

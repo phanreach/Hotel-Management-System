@@ -9,5 +9,9 @@ export const API_ENDPOINT = {
   ROOMS: "/api/rooms",
   AMENITIES: "/api/amenities", 
 
+  //booking
+  BOOKINGS: "/api/bookings",
+  MY_BOOKINGS: "/api/bookings/me",
+
 };
 export type ApiEndpointProps = (typeof API_ENDPOINT)[keyof typeof API_ENDPOINT];
