@@ -2,8 +2,8 @@ import { LucideIcon } from "lucide-react";
 
 export type Amenity = {
   id: string;
-  name: string;
-  icon: string;
+  name?: string;
+  icon?: string;
   // description?: string;
 };
 
@@ -47,7 +47,7 @@ export type RoomBase = {
   id: number;
   title: string;
   description: string;
-  images: string[];
+  images: RoomImage[];
   pricePerNight: number;
 
   rating?: number;

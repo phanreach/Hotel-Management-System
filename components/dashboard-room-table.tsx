@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Trash2, Pencil } from "lucide-react";
 import { RoomBase } from "@/src/types/api";
