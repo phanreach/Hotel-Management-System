@@ -79,7 +79,7 @@ export const fetchMyBookings = async (): Promise<RoomBooking[]> => {
   const token = Cookies.get("accessToken");
 
   if (!token) {
-    throw new Error("Not authenticated");
+    throw new Error("Not authenticated,Please log in to view your bookings.");
   }
 
   const res = await fetch(`${BASE_URL}/api/bookings/me`, {
