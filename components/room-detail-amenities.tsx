@@ -22,7 +22,7 @@ const AmenitiesRoomDetail = ({ room }: AmenitiesRoomDetailProps) => {
               />
               <div>
                 <p className="font-medium">{amenity.name}</p>
-                <p className="text-sm">{amenity.description}</p>
+                {/* <p className="text-sm">{amenity.description}</p> */}
               </div>
             </div>
           );

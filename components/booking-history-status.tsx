@@ -9,9 +9,9 @@ type Props = {
 
 const tabs: { label: string; value: Props["value"] }[] = [
   { label: "All Bookings", value: "all" },
-  { label: "Upcoming", value: "upcoming" },
-  { label: "Completed", value: "completed" },
-  { label: "Cancelled", value: "cancelled" },
+  // { label: "Upcoming", value: "upcoming" },
+  // { label: "Completed", value: "completed" },
+  // { label: "Cancelled", value: "cancelled" },
 ];
 
 export default function BookinghistoryStatus({ value, onChange }: Props) {

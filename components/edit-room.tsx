@@ -5,17 +5,12 @@ import { X, Upload, ImagePlus as Img } from "lucide-react";
 import useRoomImageMutation from "@/src/hook/use-room-image-mutation";
 import InputFieldWithGuide from "./input-field-with-guide";
 import { RoomBase } from "@/src/types/api";
-import { updateRoom } from "@/src/hook/use-room-update";
-import useUpdateRoomImage from "@/src/hook/use-update-room-image";
+import useRoomUpdate from "@/src/hook/use-room-update";
+import useSyncRoomImages from "@/src/hook/use-sync-room-image";
 interface EditRoomProps {
   room: RoomBase;
   onClose: () => void;
 }
-
-type ExistingImage = {
-  id: number;
-  url: string;
-};
 
 export default function EditRoom({ room, onClose }: EditRoomProps) {
   const [title, setTitle] = useState(room.title || "");
@@ -29,11 +24,8 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
   const [amenities, setAmenities] = useState<string[]>(
     room.amenities?.map((a) => a.id.toString()) || [],
   );
-  const [existingImages, setExistingImages] = useState<ExistingImage[]>(
-    room.images?.map((img: any) => ({
-      id: img.id,
-      url: img.url,
-    })) ?? [],
+  const [existingImages, setExistingImages] = useState<string[]>(
+    room.images.map((img) => (typeof img === "string" ? img : img.imageUrl)),
   );
 
   const [newFiles, setNewFiles] = useState<File[]>([]);
@@ -41,14 +33,12 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
   const [loading, setLoading] = useState(false);
   const [hasChanged, setHasChanged] = useState(false);
 
-  const { mutateAsync: addRoomImages } = useRoomImageMutation();
-  const { mutateAsync: updateRoomImage } = useUpdateRoomImage();
+  const { mutateAsync: uploadImages } = useRoomImageMutation();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { mutateAsync: updateRoomMutate } = useRoomUpdate();
+  const { mutateAsync: syncImages } = useSyncRoomImages();
 
   useEffect(() => {
-    const originalImageIds = room.images?.map((i: any) => i.id).join(",") ?? "";
-    const currentImageIds = existingImages.map((i) => i.id).join(",");
-
     const changed =
       title !== room.title ||
       description !== room.description ||
@@ -59,7 +49,7 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
       pricePerNight !== room.pricePerNight ||
       rating !== room.rating ||
       amenities.join(",") !== room.amenities?.map((a) => a.id).join(",") ||
-      currentImageIds !== originalImageIds ||
+      existingImages.join(",") !== room.images.join(",") ||
       newFiles.length > 0;
 
     setHasChanged(changed);
@@ -80,29 +70,16 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files ?? []);
-    if (!files.length) return;
-
     setNewFiles((prev) => [...prev, ...files]);
     setNewPreviews((prev) => [
       ...prev,
       ...files.map((f) => URL.createObjectURL(f)),
     ]);
-
     e.target.value = "";
   };
 
-  const handleReplaceExistingImage = async (imageId: number, file: File) => {
-    await updateRoomImage({ imageId, image: file });
-
-    setExistingImages((prev) =>
-      prev.map((img) => {
-        if (img.id === imageId) {
-          URL.revokeObjectURL(img.url);
-          return { ...img, url: URL.createObjectURL(file) };
-        }
-        return img;
-      }),
-    );
+  const removeExistingImage = (url: string) => {
+    setExistingImages((prev) => prev.filter((img) => img !== url));
   };
 
   const removeNewImage = (index: number) => {
@@ -112,11 +89,9 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
   };
 
   const handleSubmit = async () => {
-    if (!room.id) return;
-
     setLoading(true);
     try {
-      await updateRoom({
+      await updateRoomMutate({
         id: room.id,
         payload: {
           title,
@@ -127,16 +102,17 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
           maxGuest: maxGuests,
           pricePerNight,
           rating,
-          amenities: amenities.map((id) => ({ id: Number(id) })),
-          images: existingImages.map((i) => ({ id: i.id })),
+          amenityIds: amenities.map(Number),
         },
       });
 
-      if (newFiles.length) {
-        await addRoomImages({
-          roomId: room.id,
-          images: newFiles,
-        });
+      await syncImages({
+        roomId: room.id,
+        keepImages: existingImages, // already string[]
+      });
+
+      if (newFiles.length > 0) {
+        await uploadImages({ roomId: room.id, images: newFiles });
       }
 
       onClose();
@@ -296,33 +272,16 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
             />
 
             <div className="flex flex-wrap gap-4 mt-3">
-              {existingImages.map((img) => (
-                <div key={img.id} className="relative w-32 h-32 group">
+              {existingImages.map((url) => (
+                <div key={url} className="relative w-32 h-32 group">
                   <img
-                    src={img.url}
+                    src={url}
+                    alt="Room image"
                     className="w-full h-full object-cover rounded-lg border"
                   />
-
-                  <label className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-2 py-1 rounded cursor-pointer opacity-0 group-hover:opacity-100">
-                    Replace
-                    <input
-                      type="file"
-                      hidden
-                      accept="image/*"
-                      onChange={(e) =>
-                        e.target.files &&
-                        handleReplaceExistingImage(img.id, e.target.files[0])
-                      }
-                    />
-                  </label>
-
                   <button
-                    onClick={() =>
-                      setExistingImages((prev) =>
-                        prev.filter((i) => i.id !== img.id),
-                      )
-                    }
-                    className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100"
+                    onClick={() => removeExistingImage(url)}
+                    className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded"
                   >
                     <X size={14} />
                   </button>
@@ -330,14 +289,14 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
               ))}
 
               {newPreviews.map((src, i) => (
-                <div key={i} className="relative w-32 h-32 group">
+                <div key={src} className="relative w-32 h-32">
                   <img
                     src={src}
-                    className="w-full h-full object-cover rounded-lg border"
+                    className="w-full h-full object-cover rounded"
                   />
                   <button
                     onClick={() => removeNewImage(i)}
-                    className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded-full"
+                    className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded"
                   >
                     <X size={14} />
                   </button>

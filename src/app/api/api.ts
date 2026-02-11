@@ -50,16 +50,16 @@ export const meApi = () => api.get(API_ENDPOINT.PROFILE);
 
 export const refreshToken = async (): Promise<string | null> => {
   try {
-    const token = Cookies.get("token");
-    if (!token) return null;
+    const refreshToken = Cookies.get("refreshToken");
+    if (!refreshToken) return null;
 
-    const response = await axios.post(`${BASE_URL}/auth/refresh`, {
-      refreshToken: token,
+    const response = await axios.post(`${BASE_URL}/api/auth/refresh`, {
+      refreshToken,
     });
 
     const newAccessToken = response.data?.accessToken;
     if (newAccessToken) {
-      Cookies.set("token", newAccessToken);
+      Cookies.set("accessToken", newAccessToken);
       return newAccessToken;
     }
 

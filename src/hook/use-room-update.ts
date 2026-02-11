@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import api from "../app/api/api";
 import { API_ENDPOINT } from "../app/api/endpoint";
 import { toast } from "sonner";
+import { RoomImage } from "../types/api";
 
 export type UpdateRoomPayload = {
   id: number;
@@ -9,16 +10,15 @@ export type UpdateRoomPayload = {
 };
 
 export type UpdateRoom = {
-  title: string | null;
-  description: string | null;
+  title: string;
+  description: string;
   pricePerNight: number;
   roomType: string;
   bedSize: number;
   bedType: string;
   rating: number;
   maxGuest: number;
-  amenities: { id: number }[];
-  images: { id: number }[];
+  amenityIds: number[];
 };
 
 export const updateRoom = async ({ id, payload }: UpdateRoomPayload) => {

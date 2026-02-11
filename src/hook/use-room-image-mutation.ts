@@ -15,11 +15,6 @@ export default function useRoomImageMutation() {
       const res = await api.post(
         `/api/rooms/upload-images/${payload.roomId}`,
         formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
       );
 
       return res.data;
