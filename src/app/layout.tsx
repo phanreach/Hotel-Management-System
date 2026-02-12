@@ -15,6 +15,7 @@ export default function RootLayout({
     pathname.startsWith("/auth") ||
     pathname.startsWith("/admin/dashboard") ||
     pathname.startsWith("/admin/room");
+  pathname.startsWith("/admin/booking");
 
   return (
     <html lang="en">
