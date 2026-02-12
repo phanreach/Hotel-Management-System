@@ -3,19 +3,18 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import api from "../app/api/api";
 import { QUERY_KEY_ENUM } from "../constant/query-key-enum";
-import { Amenity } from "../types/api";
 import { API_ENDPOINT } from "../app/api/endpoint";
 
 export type createRoomPayload = {
-  title: string | null;
-  description: string | null;
+  title: string;
+  description: string;
   pricePerNight: number;
   roomType: string;
   bedSize: number;
   bedType: string;
-  rating: number;
+  rating?: number;
   maxGuest: number;
-  amenities: Amenity[];
+  amenityIds?: number[];
 };
 
 export default function useRoomMutation() {
@@ -32,9 +31,12 @@ export default function useRoomMutation() {
       return { toastId };
     },
 
-    onSuccess: ({ toastId }) => {
-      toast.dismiss(toastId);
-      toast.success("Room added successfully", { id: toastId });
+    onSuccess: (_data, _variables, context) => {
+      if (context?.toastId) {
+        toast.dismiss(context.toastId);
+        toast.success("Room added successfully");
+      }
+
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEY_ENUM.ROOMS],
       });

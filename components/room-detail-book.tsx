@@ -9,21 +9,20 @@ interface RoomDetailBookProps {
 
 export default function RoomDetailBook({ room }: RoomDetailBookProps) {
   const today = new Date();
-const tomorrow = new Date();
-tomorrow.setDate(today.getDate() + 1);
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
 
-// format as "YYYY-MM-DD" for backend
-const formatDate = (date: Date) =>
-  date.toISOString().split("T")[0];
+  // format as "YYYY-MM-DD" for backend
+  const formatDate = (date: Date) => date.toISOString().split("T")[0];
 
-  const [checkIn, setCheckIn] = useState(room?.checkinDate ||formatDate(today)
-);
-  const [checkOut, setCheckOut] = useState(room?.checkoutDate ||  formatDate(tomorrow));
+  const [checkIn, setCheckIn] = useState(room?.checkIn || formatDate(today));
+  const [checkOut, setCheckOut] = useState(
+    room?.checkOut || formatDate(tomorrow),
+  );
   const [guests, setGuests] = useState(1);
 
   // const cleaningFee = room?.cleaningFee ?? 50;
   // const serviceFee = room?.serviceFee ?? 40;
-
 
   const numberOfNights = useMemo(() => {
     const start = new Date(checkIn);
@@ -83,7 +82,7 @@ const formatDate = (date: Date) =>
             </div>
           </div>
 
-        {/* Guests selector */}
+          {/* Guests selector */}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-bold text-gray-600 uppercase">
               Guests
@@ -93,17 +92,17 @@ const formatDate = (date: Date) =>
               onChange={(e) => setGuests(Number(e.target.value))}
               className="w-full h-10 rounded-lg border border-gray-300 bg-transparent px-3 text-sm font-medium"
             >
-              {Array.from({ length: room.guests ?? 1}, (_, i) => i + 1).map(
+              {Array.from({ length: room.guests ?? 1 }, (_, i) => i + 1).map(
                 (num) => (
                   <option key={num} value={num}>
                     {num} Guest{num > 1 ? "s" : ""}
                   </option>
-                )
+                ),
               )}
             </select>
           </div>
         </div>
-      
+
         <div className="flex flex-col gap-3 py-4">
           <div className="flex justify-between text-sm text-gray-600">
             <span>

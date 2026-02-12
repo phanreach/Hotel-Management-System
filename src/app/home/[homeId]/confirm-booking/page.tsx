@@ -4,19 +4,15 @@ import CardConfirmBooking from "@/components/card-confirm-booking";
 import ConfirmBookingHeader from "@/components/confirm-booking-header";
 import ConfirmBookingPolicy from "@/components/confirm-booking-policy";
 import GuestInformation from "@/components/guest-information";
-import PaymentMethod from "@/components/payment-method";
 import { useRoomByIdQuery } from "@/src/hook/use-room-query-id";
 import { useParams, useSearchParams } from "next/navigation";
 import { notFound } from "next/navigation";
-import { RoomBooking } from "@/src/constant/data-dummy";
 import { useState } from "react";
 import { Guest } from "@/src/types/api";
 
-type Props = { params: { homeId: string } };
-
 export default function ConfirmBooking() {
   const params = useParams();
-   const [guest, setGuest] = useState<Guest>({
+  const [guest, setGuest] = useState<Guest>({
     firstName: "",
     lastName: "",
     email: "",
@@ -27,10 +23,8 @@ export default function ConfirmBooking() {
   const searchParams = useSearchParams();
 
   const checkIn = searchParams.get("checkIn");
-const checkOut = searchParams.get("checkOut");
-const numberOfNights = Number(searchParams.get("numberOfNights")) || 1;
-
-
+  const checkOut = searchParams.get("checkOut");
+  const numberOfNights = Number(searchParams.get("numberOfNights")) || 1;
 
   if (!homeId || Array.isArray(homeId)) notFound();
   if (!/^\d+$/.test(homeId)) notFound();
@@ -64,14 +58,14 @@ const numberOfNights = Number(searchParams.get("numberOfNights")) || 1;
 
       <div className="mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
         <div className="lg:col-span-2 flex flex-col gap-8">
-        <GuestInformation guest={guest} onChange={setGuest} />
+          <GuestInformation guest={guest} onChange={setGuest} />
           {/* <PaymentMethod /> */}
           <CancelBookingPolicy />
         </div>
 
         <div className="lg:col-span-1">
           <div className="sticky top-24 flex flex-col gap-6">
-            <CardConfirmBooking data={roomWithBooking}   guest={guest} />
+            {/* <CardConfirmBooking data={roomWithBooking} guest={guest} /> */}
             <ConfirmBookingPolicy />
           </div>
         </div>

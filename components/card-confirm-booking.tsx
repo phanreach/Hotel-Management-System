@@ -1,6 +1,6 @@
 import { BookingPayload, useBooking } from "@/src/hook/use-booking";
 import type { Guest, RoomWithBooking } from "@/src/types/api";
-import { MapPin, Lock } from "lucide-react";
+import { Lock } from "lucide-react";
 import { useState } from "react";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 export default function CardConfirmBooking({ data, guest }: Props) {
   const { bookRoom, loading, error } = useBooking();
-   const [successMessage, setSuccessMessage] = useState(""); // ✅ Success message
+  const [successMessage, setSuccessMessage] = useState(""); // ✅ Success message
   const nights = data.nights ?? 1;
   const checkIn = data.checkIn ?? "N/A";
   const checkOut = data.checkOut ?? "N/A";
@@ -27,7 +27,7 @@ export default function CardConfirmBooking({ data, guest }: Props) {
     if (!guest.firstName || !guest.email || !guest.phone) {
       return alert("Please fill guest information");
     }
-    if(checkIn >= checkOut) {
+    if (checkIn >= checkOut) {
       return alert("Check-out date must be after check-in date");
     }
 
@@ -37,8 +37,8 @@ export default function CardConfirmBooking({ data, guest }: Props) {
       checkOutDate: checkOut,
       guest,
     };
-console.log("Booking payload:", payload);
-    
+    console.log("Booking payload:", payload);
+
     try {
       await bookRoom(payload);
       setSuccessMessage("Booking completed successfully! 🎉"); // ✅ Show success
@@ -46,7 +46,6 @@ console.log("Booking payload:", payload);
       console.error(err);
       alert("Booking failed. Please try again.");
     }
-
   };
 
   return (
@@ -54,7 +53,7 @@ console.log("Booking payload:", payload);
       <div className="w-full h-48 bg-gray-200 relative">
         <div
           className="w-full h-full bg-center bg-cover"
-          style={{ backgroundImage: `url(${data.images[0]})` }}
+          // style={{ backgroundImage: `url(${data.images[0]})` }}
         />
         {data.roomType && (
           <div className="absolute bottom-3 left-3 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded">
@@ -118,14 +117,14 @@ console.log("Booking payload:", payload);
             <span className="text-2xl font-black">${total.toFixed(2)}</span>
           </div>
         </div>
-          {/* Success message */}
+        {/* Success message */}
         {successMessage && (
           <div className="bg-green-100 text-green-800 p-2 rounded text-center font-medium">
             {successMessage}
           </div>
         )}
 
-      <button
+        <button
           onClick={handleBooking}
           disabled={loading}
           className="flex w-full h-12 rounded-lg bg-blue-500 text-white font-bold items-center justify-center gap-2 hover:bg-blue-600 disabled:opacity-50"

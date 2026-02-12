@@ -1,8 +1,6 @@
 "use client";
 
-import { statusConfig } from "@/src/constant/data-dummy";
 import { RoomBooking } from "@/src/types/api";
-// import { BookingSummary } from "@/src/types/api";
 
 type Props = {
   data: RoomBooking;
@@ -15,14 +13,13 @@ export default function BookingHistoryCard({ data }: Props) {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 rounded-xl bg-white p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-      {/* Image */}
       <div className="relative w-full md:w-64 aspect-video md:aspect-[4/3] rounded-lg overflow-hidden shrink-0">
-        <img
+        {/* <img
           src={data.roomResponse.images[0]}
           alt={data.roomResponse.title}
           className="w-full h-full object-cover"
           loading="lazy"
-        />
+        /> */}
 
         <span
         // className={`absolute top-2 left-2 text-xs font-bold px-2 py-1 rounded-md shadow-sm ${status.badge}`}
@@ -31,29 +28,29 @@ export default function BookingHistoryCard({ data }: Props) {
         </span>
       </div>
 
-      {/* Content */}
       <div className="flex flex-1 flex-col justify-between gap-4">
         <div className="space-y-1">
           <p className="text-blue-600 text-sm font-bold uppercase">
             {data.status}
           </p>
 
-          <h3 className="text-gray-900 text-xl font-bold">{data.roomResponse.title}</h3>
+          <h3 className="text-gray-900 text-xl font-bold">
+            {/* {data.roomResponse.title} */}
+          </h3>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-gray-500 text-sm">
             <span>
-              {data.checkInDate} – {data.checkOutDate} ({data.nights} Nights)
+              {/* {data.checkInDate} – {data.checkOutDate} ({data.nights} Nights) */}
             </span>
-            <span>• {data.roomResponse.bedType}</span>
+            {/* <span>• {data.roomResponse.bedType}</span> */}
           </div>
 
           {/* <p className="text-gray-500 text-sm">{data.address}</p> */}
         </div>
 
-        {/* Footer */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-gray-100">
           <p className="text-gray-900 text-lg font-bold">
-            ${data.totalPrice.toFixed(2)}
+            {/* ${data.totalPrice.toFixed(2)} */}
             <span className="text-sm font-normal text-gray-500"> / Total</span>
           </p>
 

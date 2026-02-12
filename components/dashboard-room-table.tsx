@@ -37,6 +37,7 @@ export default function DashboardRoomDataTable({ rooms }: RoomTableProps) {
     setEditingRoom(null);
   };
 
+  const formattedRooms = rooms.content;
   return (
     <>
       <div className="overflow-x-auto">
@@ -66,15 +67,16 @@ export default function DashboardRoomDataTable({ rooms }: RoomTableProps) {
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            {rooms.content.map((room) => (
+            {formattedRooms.map((room) => (
               <tr key={room.id} className="hover:bg-gray-50">
                 <td className="p-4" />
                 <td className="p-4 flex items-center gap-3">
                   <img
-                    src={room.images?.[0] || PLACEHOLDER}
+                    src={room.images?.[0]?.imageUrl || PLACEHOLDER}
                     alt={room.title}
                     className="rounded-lg object-cover w-15 h-15"
                   />
+
                   <p className="font-bold text-gray-900">{room.title}</p>
                 </td>
 

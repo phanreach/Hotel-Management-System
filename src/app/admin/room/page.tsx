@@ -1,5 +1,6 @@
 "use client";
 
+export const dynamic = "force-dynamic";
 import React, { useState } from "react";
 import DashboardRoomHeader from "@/components/dashboard-room-header";
 import DashboardRoomFilter from "@/components/dashboard-room-filter";

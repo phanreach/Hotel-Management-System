@@ -19,11 +19,6 @@ export default function useUpdateRoomImage() {
       const res = await api.put(
         API_ENDPOINT.UPDATE_ROOM_IMAGE(imageId),
         formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
       );
 
       return res.data;

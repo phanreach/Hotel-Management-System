@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { X, Upload, ImagePlus as Img } from "lucide-react";
-import useRoomMutation from "@/src/hook/use-room-mutation";
+import useRoomMutation, {
+  createRoomPayload,
+} from "@/src/hook/use-room-mutation";
 import useRoomImageMutation from "@/src/hook/use-room-image-mutation";
 import InputFieldWithGuide from "./input-field-with-guide";
 
@@ -49,7 +51,7 @@ export default function AddRoom() {
     try {
       setLoading(true);
 
-      const payload: any = {
+      const payload: createRoomPayload = {
         title,
         description,
         roomType,
@@ -61,11 +63,13 @@ export default function AddRoom() {
         amenityIds: amenities.map(Number),
       };
 
-      Object.keys(payload).forEach((key) => {
+      (Object.keys(payload) as (keyof createRoomPayload)[]).forEach((key) => {
+        const value = payload[key];
+
         if (
-          payload[key] === "" ||
-          payload[key] === null ||
-          (Array.isArray(payload[key]) && payload[key].length === 0)
+          value === "" ||
+          value === null ||
+          (Array.isArray(value) && value.length === 0)
         ) {
           delete payload[key];
         }

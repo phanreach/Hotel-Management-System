@@ -4,45 +4,26 @@ export type Amenity = {
   id: string;
   name?: string;
   icon?: string;
-  // description?: string;
 };
 
 export type RoomBooking = {
-  bookingId: number;
-  bookerName: string | null;
-  roomResponse: {
-    id: number;
-    title: string;
-    description: string | null;
-    amenities: any[]; // you can replace `any` with a proper Amenity type if you have one
-    pricePerNight: number;
-    roomType: string | null;
-    bedSize: string | null;
-    bedType: string | null;
-    rating: number | null;
-    maxGuest: number | null;
-    images: string[];
-  };
-  checkInDate: string;
-  checkOutDate: string;
-  totalPrice: number;
-  status: "PENDING" | "CONFIRMED" | "CANCELLED";
-  guest: {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-  };
+  id: number;
+  customerName: string;
+  startDate: string;
+  endDate: string;
   nights: number;
+  taxes: number;
+  discount: number;
+  guests: number;
+  address: string;
+  status: "PENDING" | "CONFIRMED" | "CANCELLED";
 };
-
-
 
 export type RoomImage = {
   id: number;
-  images: string;
+  imageUrl: string;
 };
+
 export type RoomBase = {
   id: number;
   title: string;
@@ -61,18 +42,19 @@ export type RoomBase = {
   serviceFee?: number;
   cleaningFee?: number;
   hotelName?: string;
-  guests?: number;
 
-  checkinDate?: string;
-  checkoutDate?: string;
+  checkIn?: string;
+  checkOut?: string;
   bookings?: RoomBooking[];
+  guests?: number;
 };
 
 export type Amenity = {
-  id: string;
-  label: string;
-  icon: LucideIcon;
+  id: number;
+  name: string;
+  icon: string;
 };
+
 export type Payment = {
   id: number;
   detail: string;
