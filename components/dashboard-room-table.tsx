@@ -72,7 +72,7 @@ export default function DashboardRoomDataTable({ rooms }: RoomTableProps) {
                 <td className="p-4" />
                 <td className="p-4 flex items-center gap-3">
                   <img
-                    src={room.images?.[0]?.imageUrl || PLACEHOLDER}
+                    src={room.images?.[0] || PLACEHOLDER}
                     alt={room.title}
                     className="rounded-lg object-cover w-15 h-15"
                   />

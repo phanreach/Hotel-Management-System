@@ -25,7 +25,7 @@ export default function EditRoom({ room, onClose }: EditRoomProps) {
     room.amenities?.map((a) => a.id.toString()) || [],
   );
   const [existingImages, setExistingImages] = useState<string[]>(
-    room.images.map((img) => (typeof img === "string" ? img : img.imageUrl)),
+    room.images.map((img) => (typeof img === "string" ? img : "")),
   );
 
   const [newFiles, setNewFiles] = useState<File[]>([]);

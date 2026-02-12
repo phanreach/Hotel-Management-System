@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "deploy": "echo 'Nothing to deploy, build already done'"
+    "lint": "eslint"
   },
   "dependencies": {
     "@heroui/react": "^2.8.7",
