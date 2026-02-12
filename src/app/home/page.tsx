@@ -6,10 +6,12 @@ import PriceRange from "@/components/price-range";
 import CategoriesCheck from "@/components/categories-check";
 import Amenities from "@/components/amenities";
 import UseRoomQuery from "@/src/hook/use-room-query";
+import HomePagination from "@/components/home-pagination";
+import { useState } from "react";
 
 export default function Home() {
-  const currentPage = 1;
-  const { data: rooms, isLoading, isError } = UseRoomQuery(currentPage - 1);
+    const [page, setPage] = useState(1); // UI starts from 1
+  const { data: rooms, isLoading, isError } = UseRoomQuery(page - 1, 6);
 
   if (!rooms) return <div>No rooms found</div>;
 
@@ -33,6 +35,11 @@ export default function Home() {
           <RoomCard rooms={rooms} />
         </div>
       </div>
+      <HomePagination
+        totalPages={rooms.totalPages}
+        currentPage={page}
+        onChange={(newPage) => setPage(newPage)}
+      />
     </div>
   );
 }

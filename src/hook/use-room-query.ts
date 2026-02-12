@@ -1,10 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery,keepPreviousData  } from "@tanstack/react-query";
 import { RoomBase } from "../types/api";
 
 type PaginatedRooms = {
   content: RoomBase[];
   totalPages: number;
   totalElements: number;
+  number: number;     // current page (Spring)
+  first: boolean;
+  last: boolean;
 };
 export default function UseRoomQuery(page: number = 0, size: number = 6) {
   const apiFn = async (): Promise<PaginatedRooms> => {
@@ -21,5 +24,6 @@ export default function UseRoomQuery(page: number = 0, size: number = 6) {
   return useQuery<PaginatedRooms>({
     queryKey: ["rooms", page, size],
     queryFn: apiFn,
+    placeholderData: keepPreviousData, 
   });
 }

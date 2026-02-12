@@ -67,7 +67,14 @@ export type BookingSummary = {
   roomType: string;
 };
 
-export type RoomWithBooking = RoomBase & Partial<RoomBooking>;
+export type RoomWithBooking = RoomBase & Partial<RoomBooking> & {
+   checkIn: string | null;
+  checkOut: string | null;
+  nights: number;
+  guests: number;
+  taxes: number;
+  discount: number;
+};
 
 export type Payment = {
   id: number;
