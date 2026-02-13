@@ -18,6 +18,7 @@ export type LoginResponse = {
   role: string;
   first_name: string;
   last_name: string;
+  phone: string;
 };
 
 export default function useLogin() {
@@ -41,6 +42,7 @@ export default function useLogin() {
       Cookies.set("user_id", String(data.user_id));
       Cookies.set("first_name", data.first_name);
       Cookies.set("last_name", data.last_name);
+      Cookies.set("phone", data.phone);
       console.log("Login success", data);
     },
 

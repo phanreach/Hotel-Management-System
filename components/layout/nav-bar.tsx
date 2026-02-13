@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { Cookie, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
@@ -26,7 +26,7 @@ export default function NavBar() {
   const links = [
     { name: "Home", href: "/home" },
     { name: "My Booking", href: "/booking-history" },
-    { name: "Contact", href: "/contact" },
+    // { name: "Contact", href: "/contact" },
   ];
 
   const profileLinks = [{ name: "Logout", href: "/logout" }];
@@ -42,6 +42,7 @@ export default function NavBar() {
     Cookies.remove("user_id");
     Cookies.remove("first_name");
     Cookies.remove("last_name");
+    Cookies.remove("phone");
 
     setUsername(null);
     router.push("/auth/login");

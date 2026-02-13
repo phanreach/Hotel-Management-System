@@ -9,7 +9,6 @@ import DescriptionRoomDetail from "@/components/room-detail-description";
 import AmenitiesRoomDetail from "@/components/room-detail-amenities";
 import RoomDetailBook from "@/components/room-detail-book";
 import RoomDetailAvailability from "@/components/room-detail-availability";
-import RoomDetailReview from "@/components/room-detail-review";
 
 export default function RoomDetailPage() {
   const params = useParams();
@@ -35,7 +34,6 @@ export default function RoomDetailPage() {
             <DescriptionRoomDetail room={room} />
             <AmenitiesRoomDetail room={room} />
             <RoomDetailAvailability />
-            <RoomDetailReview />
           </div>
           <div className="lg:col-span-1">
             <RoomDetailBook room={room} />

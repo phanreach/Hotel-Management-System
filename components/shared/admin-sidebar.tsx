@@ -7,7 +7,7 @@ import {
   BookOpen,
   Group,
   BadgeCheck,
-  Settings,
+  // Settings,
   LogOut,
   ChevronLeft,
   ChevronRight,
@@ -19,9 +19,9 @@ const NAV_ITEMS = [
   { label: "Dashboard", icon: LayoutDashboard, href: "/admin/dashboard" },
   { label: "Rooms", icon: Bed, href: "/admin/room" },
   { label: "Bookings", icon: BookOpen, href: "/admin/booking" },
-  { label: "Guests", icon: Group, href: "/dashboard-user" },
-  { label: "Staff", icon: BadgeCheck, href: "/staff" },
-  { label: "Settings", icon: Settings, href: "/settings" },
+  { label: "Guests", icon: Group, href: "/admin/guest" },
+  { label: "Staff", icon: BadgeCheck, href: "/admin/staff" },
+  // { label: "Settings", icon: Settings, href: "/admin/settings" },
 ];
 
 interface AdminSidebarProps {

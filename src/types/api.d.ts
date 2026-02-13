@@ -6,41 +6,6 @@ export type Amenity = {
   icon?: string;
 };
 
-export type RoomBooking = {
-  bookingId: number;
-  bookerName: string | null;
-
-  roomResponse: {
-    id: number;
-    title: string;
-    description: string | null;
-    amenities: string[];
-    pricePerNight: number;
-    roomType: string;
-    bedSize: string | null;
-    bedType: string | null;
-    rating: number | null;
-    maxGuest: number | null;
-    images: string[];
-  };
-
-  checkInDate: string;
-  checkOutDate: string;
-  totalPrice: number;
-  status: "PENDING" | "CONFIRMED" | "CANCELLED";
-
-  guest: {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-  };
-
-  nights: number;
-};
-
-
 export type RoomImage = {
   id: number;
   imageUrl: string;
@@ -77,39 +42,65 @@ export type Amenity = {
   icon: string;
 };
 
-export type Payment = {
-  id: number;
-  detail: string;
-};
-// types/booking.ts
-export type BookingSummary = {
-  id: string;
-  hotelName: string;
-  imageUrl: string;
-  roomType: string;
-};
+// src/types/api.ts
 
-export type RoomWithBooking =
-  Omit<RoomBase, "checkIn" | "checkOut"> &
-  Partial<RoomBooking> & {
-    checkIn: string | null;
-    checkOut: string | null;
-    nights: number;
-    guests: number;
-    taxes: number;
-    discount: number;
+export type BookingStatus = "pending" | "confirmed" | "cancelled" | "completed";
+
+export type RoomBooking = {
+  bookingId?: number;
+  bookerName?: string | null;
+  bookerEmail?: string | null;
+  bookerPhone?: string | null;
+  bookerSpecialRequest?: string | null;
+
+  roomResponse: {
+    id?: number;
+    title?: string;
+    description?: string | null;
+    amenities?: string[];
+    pricePerNight?: number;
+    roomType?: string;
+    bedSize?: string | null;
+    bedType?: string | null;
+    rating?: number | null;
+    maxGuest?: number | null;
+    images?: string[];
   };
 
+  checkInDate: string;
+  checkOutDate: string;
+  totalPrice?: number;
+  nights: number;
 
-export type Payment = {
-  id: number;
-  detail: string;
+  status?: BookingStatus;
 };
-export type BookingStatus = "PENDING" | "CONFIRMED" | "CANCELLED";
+
+export interface BookingRoom {
+  id: number;
+  title: string;
+  images: string[];
+  roomType: string;
+  bedType: string | null;
+}
+
+export interface Booking {
+  bookingId: number;
+  checkInDate: string;
+  checkOutDate: string;
+  nights: number;
+  totalPrice: number;
+  bookerName?: string;
+  roomResponse: BookingRoom;
+}
+
+export type BookingPayload = {
+  roomId: number;
+  checkInDate: string;
+  checkOutDate: string;
+};
 
 export type BookingPreview = {
   roomId: number;
-
   title: string;
   hotelName?: string;
   address: string;
@@ -124,17 +115,24 @@ export type BookingPreview = {
   discount: number;
   total: number;
 };
-export type Guest = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  specialRequest: string;
+
+export type RoomWithBooking = Omit<RoomBase, "checkIn" | "checkOut"> & {
+  checkIn: string | null;
+  checkOut: string | null;
+  nights: number;
+  guests: number;
+  taxes: number;
+  discount: number;
 };
 
-export type BookingPayload = {
-  roomId: number;
-  checkInDate: string;
-  checkOutDate: string;
-  guest: Guest;
+export type Payment = {
+  id: number;
+  detail: string;
+};
+
+export type BookingSummary = {
+  id: string;
+  hotelName: string;
+  imageUrl: string;
+  roomType: string;
 };

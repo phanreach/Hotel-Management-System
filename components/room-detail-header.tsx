@@ -56,16 +56,6 @@ const RoomDetailHeader = ({ room }: RoomDetailHeaderProps) => {
             )}
           </div>
         </div>
-
-        <div className="flex items-center gap-3">
-          <button className="rounded-xl border border-gray-200 bg-white px-5 h-12 text-sm font-bold text-[#111418] shadow-sm hover:bg-gray-50 transition">
-            Edit Details
-          </button>
-
-          <button className="rounded-xl border border-gray-200 bg-white px-5 h-12 text-sm font-bold text-red-600 shadow-sm hover:bg-red-50 transition">
-            Block Dates
-          </button>
-        </div>
       </div>
     </div>
   );

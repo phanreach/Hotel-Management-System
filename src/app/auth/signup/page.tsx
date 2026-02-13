@@ -16,6 +16,7 @@ export default function Signup() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
 
   const isLoading = signup.isPending;
 
@@ -24,10 +25,11 @@ export default function Signup() {
 
     try {
       await signup.mutateAsync({
-        first_name: firstName,
-        last_name: lastName,
+        firstName,
+        lastName,
         email,
         password,
+        phone,
       });
 
       router.push("/auth/login");
@@ -123,6 +125,23 @@ export default function Signup() {
                     className="w-full h-12 px-4 pl-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                   />
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-700">
+                  Phone Number
+                </label>
+                <div className="relative flex items-center">
+                  <span className="absolute left-3 text-slate-600">+855</span>
+                  <input
+                    type="tel"
+                    placeholder="123 456 789"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full h-12 pl-14 pr-4 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
+                  />
                 </div>
               </div>
 

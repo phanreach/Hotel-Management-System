@@ -1,139 +1,153 @@
 "use client";
+
 import React, { useState, useMemo } from "react";
 import type { RoomBase } from "@/src/types/api";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 interface RoomDetailBookProps {
   room: RoomBase;
 }
 
 export default function RoomDetailBook({ room }: RoomDetailBookProps) {
+  const router = useRouter();
+
   const today = new Date();
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
 
-  // format as "YYYY-MM-DD" for backend
   const formatDate = (date: Date) => date.toISOString().split("T")[0];
 
-  const [checkIn, setCheckIn] = useState(room?.checkIn || formatDate(today));
-  const [checkOut, setCheckOut] = useState(
-    room?.checkOut || formatDate(tomorrow),
-  );
+  const [checkIn, setCheckIn] = useState(formatDate(today));
+  const [checkOut, setCheckOut] = useState(formatDate(tomorrow));
   const [guests, setGuests] = useState(1);
-
-  // const cleaningFee = room?.cleaningFee ?? 50;
-  // const serviceFee = room?.serviceFee ?? 40;
 
   const numberOfNights = useMemo(() => {
     const start = new Date(checkIn);
     const end = new Date(checkOut);
-    const difference = end.getTime() - start.getTime();
-    const nights = Math.ceil(difference / (1000 * 3600 * 24));
+    const diff = end.getTime() - start.getTime();
+    const nights = Math.ceil(diff / (1000 * 3600 * 24));
     return nights > 0 ? nights : 0;
   }, [checkIn, checkOut]);
 
-  const totalBasePrice = (room?.pricePerNight ?? 0) * numberOfNights;
-  // const totalPrice = totalBasePrice + cleaningFee + serviceFee;
-  const totalPrice = totalBasePrice;
+  const totalBasePrice = (room.pricePerNight ?? 0) * numberOfNights;
 
   if (!room) return <div>Room not found</div>;
 
+  const handleBookNow = () => {
+    if (numberOfNights <= 0) {
+      alert("Check-out date must be after check-in date");
+      return;
+    }
+
+    const token = Cookies.get("accessToken");
+
+    const bookingUrl =
+      `/home/${room.id}/confirm-booking` +
+      `?checkIn=${checkIn}` +
+      `&checkOut=${checkOut}` +
+      `&guests=${guests}` +
+      `&numberOfNights=${numberOfNights}`;
+
+    if (!token) {
+      router.push(`/auth/login?redirect=${encodeURIComponent(bookingUrl)}`);
+      return;
+    }
+
+    router.push(bookingUrl);
+  };
+
   return (
     <div className="lg:col-span-4 relative">
-      <div className="sticky top-24 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 p-6 flex flex-col gap-6">
-        <div className="flex items-end justify-between border-b border-gray-100 pb-4">
+      <div className="sticky top-24 bg-white rounded-xl shadow-lg p-6 flex flex-col gap-6">
+        {/* PRICE */}
+        <div className="flex items-end justify-between border-b pb-4">
           <div>
-            <span className="text-sm text-gray-400 line-through">$350</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-3xl font-black text-[#111418]">
-                ${room.pricePerNight}
-              </span>
-              <span className="text-sm text-gray-500 font-medium">/ night</span>
+              <span className="text-3xl font-black">${room.pricePerNight}</span>
+              <span className="text-sm text-gray-500">/ night</span>
             </div>
           </div>
-          <div className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold uppercase tracking-wide">
+
+          <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">
             Available
-          </div>
+          </span>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-2">
-            <div className="flex flex-col gap-1">
-              <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
-                Check-in
-              </label>
-              <input
-                type="date"
-                value={checkIn}
-                onChange={(e) => setCheckIn(e.target.value)}
-                className="w-full h-10 rounded-lg border border-gray-300 bg-transparent px-3 text-sm font-medium text-[#111418] focus:ring-2 focus:ring-blue-500 outline-none"
-              />
-            </div>
 
-            <div className="flex flex-col gap-1">
-              <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
-                Check-out
-              </label>
-              <input
-                type="date"
-                value={checkOut}
-                onChange={(e) => setCheckOut(e.target.value)}
-                className="w-full h-10 rounded-lg border border-gray-300 bg-transparent px-3 text-sm font-medium text-[#111418] focus:ring-2 focus:ring-blue-500 outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Guests selector */}
+        {/* DATE INPUTS */}
+        <div className="grid grid-cols-2 gap-2">
           <div className="flex flex-col gap-1">
             <label className="text-xs font-bold text-gray-600 uppercase">
-              Guests
+              Check-in
             </label>
-            <select
-              value={guests}
-              onChange={(e) => setGuests(Number(e.target.value))}
-              className="w-full h-10 rounded-lg border border-gray-300 bg-transparent px-3 text-sm font-medium"
-            >
-              {Array.from({ length: room.guests ?? 1 }, (_, i) => i + 1).map(
-                (num) => (
-                  <option key={num} value={num}>
-                    {num} Guest{num > 1 ? "s" : ""}
-                  </option>
-                ),
-              )}
-            </select>
+            <input
+              type="date"
+              value={checkIn}
+              onChange={(e) => setCheckIn(e.target.value)}
+              className="h-10 rounded-lg border px-3 text-sm"
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-bold text-gray-600 uppercase">
+              Check-out
+            </label>
+            <input
+              type="date"
+              value={checkOut}
+              onChange={(e) => setCheckOut(e.target.value)}
+              className="h-10 rounded-lg border px-3 text-sm"
+            />
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 py-4">
+        {/* GUESTS */}
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-bold text-gray-600 uppercase">
+            Guests
+          </label>
+          <select
+            value={guests}
+            onChange={(e) => setGuests(Number(e.target.value))}
+            className="h-10 rounded-lg border px-3 text-sm"
+          >
+            {Array.from({ length: room.guests ?? 1 }, (_, i) => i + 1).map(
+              (num) => (
+                <option key={num} value={num}>
+                  {num} Guest{num > 1 ? "s" : ""}
+                </option>
+              ),
+            )}
+          </select>
+        </div>
+
+        {/* TOTAL */}
+        <div className="flex flex-col gap-3 pt-4">
           <div className="flex justify-between text-sm text-gray-600">
             <span>
-              ${room.pricePerNight} x {numberOfNights} nights
+              ${room.pricePerNight} × {numberOfNights} nights
             </span>
             <span>${totalBasePrice}</span>
           </div>
-          {/* <div className="flex justify-between text-sm text-gray-600">
-            <span>Cleaning Fee</span>
-            <span>${cleaningFee}</span>
-          </div>
-          <div className="flex justify-between text-sm text-gray-600">
-            <span>Service Fee</span>
-            <span>${serviceFee}</span> */}
-          {/* </div> */}
-          <div className="h-px bg-gray-200 my-1"></div>
+
+          <div className="h-px bg-gray-200" />
+
           <div className="flex justify-between items-center">
-            <span className="font-bold text-[#111418]">Total (USD)</span>
-            <span className="font-black text-xl text-[#111418]">
-              {/* ${numberOfNights > 0 ? totalPrice : cleaningFee + serviceFee} */}
-              ${numberOfNights > 0 ? totalPrice : 0}
+            <span className="font-bold">Total (USD)</span>
+            <span className="text-xl font-black">
+              ${numberOfNights > 0 ? totalBasePrice : 0}
             </span>
           </div>
         </div>
 
-        <Link
-          href={`/home/${room.id}/confirm-booking?checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}&numberOfNights=${numberOfNights}`}
-          className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg shadow-blue-500/30 transition-all flex items-center justify-center gap-2 text-base"
+        {/* BOOK BUTTON */}
+        <button
+          onClick={handleBookNow}
+          className="h-12 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow cursor-pointer transition-colors"
         >
           Book Now
-        </Link>
+        </button>
+
         <p className="text-center text-xs text-gray-400">
           You won&apos;t be charged yet
         </p>
