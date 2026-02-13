@@ -4,8 +4,9 @@ import { toast } from "sonner";
 import { API_ENDPOINT } from "./endpoint";
 import { RoomBooking } from "@/src/types/api";
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "https://hotel-api.mockexamkh.com";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+
+console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
 
 if (!BASE_URL) {
   throw new Error(

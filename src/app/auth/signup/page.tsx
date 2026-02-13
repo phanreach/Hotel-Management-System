@@ -25,8 +25,8 @@ export default function Signup() {
 
     try {
       await signup.mutateAsync({
-        firstName,
-        lastName,
+        first_name: firstName,
+        last_name: lastName,
         email,
         password,
         phone,

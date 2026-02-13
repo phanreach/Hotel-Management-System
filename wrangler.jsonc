@@ -9,5 +9,12 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
+  },
+  "env": {
+    "production": {
+      "vars": {
+        "NEXT_PUBLIC_API_URL": "https://hotel-api.mockexamkh.com"
+      }
+    }
   }
 }
