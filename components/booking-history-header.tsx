@@ -1,5 +1,12 @@
 import { Search } from "lucide-react";
-export default function BookingHistoryHeader() {
+
+type Props = {
+  upcoming: number;
+  past: number;
+};
+
+export default function BookingHistoryHeader({ upcoming, past }: Props) {
+
   return (
     <section className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
       {/* Page Heading */}
@@ -8,7 +15,7 @@ export default function BookingHistoryHeader() {
           My Booking History
         </h1>
         <p className="text-text-secondary text-base font-normal leading-normal">
-          You have 2 upcoming stays and 5 past bookings.
+          You have {upcoming} upcoming stays and {past} past bookings.
         </p>
       </div>
 

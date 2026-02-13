@@ -7,17 +7,39 @@ export type Amenity = {
 };
 
 export type RoomBooking = {
-  id: number;
-  customerName: string;
-  startDate: string;
-  endDate: string;
-  nights: number;
-  taxes: number;
-  discount: number;
-  guests: number;
-  address: string;
+  bookingId: number;
+  bookerName: string | null;
+
+  roomResponse: {
+    id: number;
+    title: string;
+    description: string | null;
+    amenities: string[];
+    pricePerNight: number;
+    roomType: string;
+    bedSize: string | null;
+    bedType: string | null;
+    rating: number | null;
+    maxGuest: number | null;
+    images: string[];
+  };
+
+  checkInDate: string;
+  checkOutDate: string;
+  totalPrice: number;
   status: "PENDING" | "CONFIRMED" | "CANCELLED";
+
+  guest: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+  };
+
+  nights: number;
 };
+
 
 export type RoomImage = {
   id: number;
@@ -67,14 +89,17 @@ export type BookingSummary = {
   roomType: string;
 };
 
-export type RoomWithBooking = RoomBase & Partial<RoomBooking> & {
-   checkIn: string | null;
-  checkOut: string | null;
-  nights: number;
-  guests: number;
-  taxes: number;
-  discount: number;
-};
+export type RoomWithBooking =
+  Omit<RoomBase, "checkIn" | "checkOut"> &
+  Partial<RoomBooking> & {
+    checkIn: string | null;
+    checkOut: string | null;
+    nights: number;
+    guests: number;
+    taxes: number;
+    discount: number;
+  };
+
 
 export type Payment = {
   id: number;

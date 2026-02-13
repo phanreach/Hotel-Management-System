@@ -35,22 +35,22 @@ export default function BookingHistoryCard({ data }: Props) {
           </p>
 
           <h3 className="text-gray-900 text-xl font-bold">
-            {/* {data.roomResponse.title} */}
+            {data.roomResponse.title}
           </h3>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-gray-500 text-sm">
             <span>
-              {/* {data.checkInDate} – {data.checkOutDate} ({data.nights} Nights) */}
+              {data.checkInDate} – {data.checkOutDate} ({data.nights} Nights)
             </span>
-            {/* <span>• {data.roomResponse.bedType}</span> */}
+            <span>• {data.roomResponse.bedType}</span>
           </div>
 
-          {/* <p className="text-gray-500 text-sm">{data.address}</p> */}
+          {/* <p className="text-gray-500 text-sm">{data.a}</p> */}
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-gray-100">
           <p className="text-gray-900 text-lg font-bold">
-            {/* ${data.totalPrice.toFixed(2)} */}
+            ${data.totalPrice.toFixed(2)}
             <span className="text-sm font-normal text-gray-500"> / Total</span>
           </p>
 
