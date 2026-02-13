@@ -65,7 +65,7 @@ export default function ConfirmBooking() {
 
         <div className="lg:col-span-1">
           <div className="sticky top-24 flex flex-col gap-6">
-            {/* <CardConfirmBooking data={roomWithBooking} guest={guest} /> */}
+            <CardConfirmBooking data={roomWithBooking} guest={guest} />
             <ConfirmBookingPolicy />
           </div>
         </div>

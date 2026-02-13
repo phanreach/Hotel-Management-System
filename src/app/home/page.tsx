@@ -12,12 +12,13 @@ import { useState } from "react";
 export default function Home() {
     const [page, setPage] = useState(1); // UI starts from 1
   const { data: rooms, isLoading, isError } = UseRoomQuery(page - 1, 6);
-
-  if (!rooms) return <div>No rooms found</div>;
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
+  if (!rooms) return <div>No rooms found</div>;
+
+  
   if (isError || !rooms) {
     return <div>Error loading rooms.</div>;
   }

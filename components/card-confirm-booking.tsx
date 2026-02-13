@@ -27,6 +27,11 @@ export default function CardConfirmBooking({ data, guest }: Props) {
     if (!guest.firstName || !guest.email || !guest.phone) {
       return alert("Please fill guest information");
     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(guest.email)) {
+      return alert("Invalid email format");
+    }
+
     if (checkIn >= checkOut) {
       return alert("Check-out date must be after check-in date");
     }
