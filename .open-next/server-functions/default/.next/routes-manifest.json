@@ -58,16 +58,34 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
+      "page": "/admin/booking",
+      "regex": "^/admin/booking(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/booking(?:/)?$"
+    },
+    {
       "page": "/admin/dashboard",
       "regex": "^/admin/dashboard(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/admin/dashboard(?:/)?$"
     },
     {
+      "page": "/admin/guest",
+      "regex": "^/admin/guest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/guest(?:/)?$"
+    },
+    {
       "page": "/admin/room",
       "regex": "^/admin/room(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/admin/room(?:/)?$"
+    },
+    {
+      "page": "/admin/staff",
+      "regex": "^/admin/staff(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/staff(?:/)?$"
     },
     {
       "page": "/auth/login",
