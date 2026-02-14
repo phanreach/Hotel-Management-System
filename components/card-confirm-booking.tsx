@@ -42,7 +42,7 @@ export default function CardConfirmBooking({ data }: Props) {
       if (res) setSuccessMessage("Booking completed successfully! 🎉");
     } catch (err) {
       console.error(err);
-      alert("Booking failed. Please try again.");
+      alert("Room isn't available for that day");
     }
   };
 
