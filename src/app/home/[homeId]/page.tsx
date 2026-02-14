@@ -8,7 +8,7 @@ import RoomDetailGallery from "@/components/room-detail-image";
 import DescriptionRoomDetail from "@/components/room-detail-description";
 import AmenitiesRoomDetail from "@/components/room-detail-amenities";
 import RoomDetailBook from "@/components/room-detail-book";
-import RoomDetailAvailability from "@/components/room-detail-availability";
+// import RoomDetailAvailability from "@/components/room-detail-availability";
 
 export default function RoomDetailPage() {
   const params = useParams();
@@ -33,7 +33,7 @@ export default function RoomDetailPage() {
           <div className="lg:col-span-3 space-y-8">
             <DescriptionRoomDetail room={room} />
             <AmenitiesRoomDetail room={room} />
-            <RoomDetailAvailability />
+            {/* <RoomDetailAvailability roomId={roomId} /> */}
           </div>
           <div className="lg:col-span-1">
             <RoomDetailBook room={room} />

@@ -11,9 +11,11 @@ export const API_ENDPOINT = {
   UPDATE_ROOM_IMAGE: (roomId: number) => `/api/rooms/${roomId}/update-images`,
   SYNC_ROOM_IMAGES: (roomId: number) => `/api/rooms/${roomId}/sync-images`,
   AMENITIES: "/api/amenities",
-
+  CHECK_AVAILABILITY: "/api/bookings/availability",
+  // src/app/api/endpoint.ts
+  MY_BOOKINGS: "/api/bookings/me",
+  CANCEL_BOOKING: (bookingId: number) => `/api/bookings/${bookingId}/cancel`,
   //booking
   BOOKINGS: "/api/bookings",
-  MY_BOOKINGS: "/api/bookings/me",
 };
 export type ApiEndpointProps = (typeof API_ENDPOINT)[keyof typeof API_ENDPOINT];

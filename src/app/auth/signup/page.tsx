@@ -75,7 +75,7 @@ export default function Signup() {
               {/* First Name */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
-                  First Name
+                  First Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   {...register("firstName")}
@@ -93,7 +93,7 @@ export default function Signup() {
               {/* Last Name */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
-                  Last Name
+                  Last Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   {...register("lastName")}
@@ -111,7 +111,7 @@ export default function Signup() {
               {/* Email */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
-                  Email Address
+                  Email Address <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -130,7 +130,7 @@ export default function Signup() {
               {/* Phone */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
-                  Phone Number
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
                 <div className="relative flex items-center">
                   <span className="absolute left-3 text-slate-600">+855</span>
@@ -149,7 +149,7 @@ export default function Signup() {
               {/* Password */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
-                  Password
+                  Password <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <input

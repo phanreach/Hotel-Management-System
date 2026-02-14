@@ -17,7 +17,7 @@ export type RoomBase = {
   description: string;
   images: string[];
   pricePerNight: number;
-
+  bookedDates?: string[];
   rating?: number;
   maxGuest?: number;
   amenities?: Amenity[];
@@ -25,6 +25,7 @@ export type RoomBase = {
   roomType?: string;
   bedSize?: number;
   bedType?: string;
+  bookedDates?: string[];
 
   serviceFee?: number;
   cleaningFee?: number;

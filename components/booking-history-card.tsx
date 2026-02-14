@@ -1,13 +1,23 @@
+// src/components/booking-history-card.tsx
 "use client";
 
 import type { RoomBooking } from "@/src/types/api";
+import { useCancelBooking } from "@/src/hook/use-cancel-booking";
 
 export type Props = {
   data: RoomBooking;
 };
 
 export default function BookingHistoryCard({ data }: Props) {
-  const imageUrl = data.roomResponse.images?.[0] ?? "/placeholder.jpg"; // fallback image
+  const cancelMutation = useCancelBooking();
+
+  const handleCancel = () => {
+    if (!confirm("Are you sure you want to cancel this booking?")) return;
+    if (!data.bookingId) return;
+    cancelMutation.mutate(data.bookingId);
+  };
+
+  const imageUrl = data.roomResponse.images?.[0] ?? "/placeholder.jpg";
 
   return (
     <div className="flex flex-col md:flex-row gap-4 rounded-xl bg-white p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -41,8 +51,11 @@ export default function BookingHistoryCard({ data }: Props) {
           </p>
 
           <div className="flex gap-3 w-full md:w-auto">
-            <button className="flex-1 md:flex-none h-10 px-4 rounded-lg border border-gray-200 text-gray-800 text-sm font-bold hover:bg-gray-50">
-              View Details
+            <button
+              onClick={handleCancel}
+              className="flex-1 md:flex-none h-10 px-4 rounded-lg bg-red-600 text-white text-sm font-bold hover:bg-red-700 disabled:opacity-50"
+            >
+              Cancel Booking
             </button>
           </div>
         </div>

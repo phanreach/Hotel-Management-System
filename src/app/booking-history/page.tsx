@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import BookingHistoryCard from "@/components/booking-history-card";
-import BookingHistoryHeader from "@/components/booking-history-header";
+import { useState, useEffect } from "react";
 import BookinghistoryStatus from "@/components/booking-history-status";
 import BookingHistoryPagination from "@/components/booking-history-pagination";
 import useMyBookingsQuery from "@/src/hook/useMyBookings";
+import BookingHistoryCard from "@/components/booking-history-card";
 
 export default function BookingHistory() {
   const [mounted, setMounted] = useState(false);
@@ -15,16 +14,10 @@ export default function BookingHistory() {
 
   const { data: bookings = [], isLoading, error } = useMyBookingsQuery();
 
-  // Prevent hydration mismatch
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  // Since status is always "all", just show all bookings
-  const filtered = bookings;
-
+  const filtered = bookings; // status filter can be added later
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
   const currentItems = filtered.slice(
     (currentPage - 1) * itemsPerPage,
@@ -34,11 +27,7 @@ export default function BookingHistory() {
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
-        <BookingHistoryHeader />
-
-        <div className="sticky top-0 z-10 bg-gray-50 py-2">
-          <BookinghistoryStatus value={status} onChange={setStatus} />
-        </div>
+        <BookinghistoryStatus value={status} onChange={setStatus} />
 
         {isLoading ? (
           <p className="text-center mt-10">Loading...</p>
@@ -51,12 +40,10 @@ export default function BookingHistory() {
         ) : (
           <section className="flex flex-col gap-4">
             {currentItems.map((booking) => (
-              <div
+              <BookingHistoryCard
                 key={booking.bookingId ?? booking.roomResponse?.title}
-                className="transition-transform hover:-translate-y-0.5"
-              >
-                <BookingHistoryCard data={booking} />
-              </div>
+                data={booking}
+              />
             ))}
           </section>
         )}

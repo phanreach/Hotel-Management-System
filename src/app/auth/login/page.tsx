@@ -110,7 +110,7 @@ export default function LoginPageContent() {
               {/* Email */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
-                  Email Address
+                  Email Address <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -129,7 +129,7 @@ export default function LoginPageContent() {
               {/* Password */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
-                  Password
+                  Password <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <input
