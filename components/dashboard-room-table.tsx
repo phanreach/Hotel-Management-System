@@ -54,9 +54,9 @@ export default function DashboardRoomDataTable({ rooms }: RoomTableProps) {
               <th className="p-4 text-xs font-bold text-gray-500 uppercase">
                 Price / Night
               </th>
-              <th className="p-4 text-xs font-bold text-gray-500 uppercase">
+              {/* <th className="p-4 text-xs font-bold text-gray-500 uppercase">
                 Status
-              </th>
+              </th> */}
               <th className="p-4 text-xs font-bold text-gray-500 uppercase">
                 Capacity
               </th>
@@ -83,7 +83,7 @@ export default function DashboardRoomDataTable({ rooms }: RoomTableProps) {
                 <td className="p-4 text-sm">{room.roomType}</td>
                 <td className="p-4 text-sm">${room.pricePerNight}</td>
 
-                <td className="p-4">
+                {/* <td className="p-4">
                   <span
                     className={`px-2.5 py-1 rounded-full text-xs font-bold ${
                       room.isAvailable
@@ -93,7 +93,7 @@ export default function DashboardRoomDataTable({ rooms }: RoomTableProps) {
                   >
                     {room.isAvailable ? "Available" : "Not Available"}
                   </span>
-                </td>
+                </td> */}
 
                 <td className="p-4 text-sm">{room.maxGuest} persons</td>
 
