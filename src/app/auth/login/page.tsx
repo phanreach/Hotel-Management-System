@@ -1,48 +1,37 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Mail, Lock, EyeOff, Eye, Loader2, House } from "lucide-react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import useLogin from "@/hooks/use-login";
+import { LoginSchema, loginSchema } from "@/lib/schema/login-schema";
 
 export default function LoginPageContent() {
   const router = useRouter();
+  const loginMutation = useLogin();
 
   const [showPassword, setShowPassword] = useState(false);
-
-  const loginMutation = useLogin();
-  const loading = loginMutation.isPending;
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [errors, setErrors] = useState<{
-    email?: string;
-    password?: string;
-  }>({});
-
   const [backendError, setBackendError] = useState<string | null>(null);
 
-  const validate = () => {
-    const newErrors: { email?: string; password?: string } = {};
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
+  });
 
-    if (!email) newErrors.email = "Email is required";
-    if (!password) newErrors.password = "Password is required";
+  const loading = loginMutation.isPending;
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: LoginSchema) => {
     setBackendError(null);
 
-    if (!validate()) return;
-
     try {
-      await loginMutation.mutateAsync({ email, password });
-
+      await loginMutation.mutateAsync(data);
       router.push("/admin/dashboard");
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -71,9 +60,13 @@ export default function LoginPageContent() {
 
         <div className="relative z-10 text-white max-w-lg space-y-6">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
+            <button
+              onClick={() => router.push("/home")}
+              className="p-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-colors cursor-pointer"
+            >
               <House className="w-8 h-8" />
-            </div>
+            </button>
+
             <h2 className="text-2xl font-bold tracking-tight">HMS</h2>
           </div>
           <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
@@ -94,7 +87,7 @@ export default function LoginPageContent() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
         <div className="w-full max-w-[460px]">
           <form
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 lg:p-10 space-y-6"
           >
             <div className="space-y-2">
@@ -106,7 +99,7 @@ export default function LoginPageContent() {
               </p>
             </div>
 
-            {/* Backend Error Alert */}
+            {/* Backend Error */}
             {backendError && (
               <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
                 <p className="text-sm text-red-600">{backendError}</p>
@@ -121,33 +114,29 @@ export default function LoginPageContent() {
                 </label>
                 <div className="relative">
                   <input
+                    {...register("email")}
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-12 px-4 pl-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                     placeholder="you@example.com"
+                    className="w-full h-12 px-4 pl-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                   />
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
                 </div>
                 {errors.email && (
-                  <p className="text-sm text-red-600">{errors.email}</p>
+                  <p className="text-sm text-red-600">{errors.email.message}</p>
                 )}
               </div>
 
               {/* Password */}
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium text-slate-700">
-                    Password
-                  </label>
-                </div>
+                <label className="text-sm font-medium text-slate-700">
+                  Password
+                </label>
                 <div className="relative">
                   <input
+                    {...register("password")}
                     type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full h-12 px-4 pl-11 pr-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                     placeholder="Enter your password"
+                    className="w-full h-12 px-4 pl-11 pr-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                   />
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
                   <button
@@ -163,12 +152,13 @@ export default function LoginPageContent() {
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="text-sm text-red-600">{errors.password}</p>
+                  <p className="text-sm text-red-600">
+                    {errors.password.message}
+                  </p>
                 )}
               </div>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -181,7 +171,6 @@ export default function LoginPageContent() {
               )}
             </button>
 
-            {/* Sign Up Link */}
             <div className="pt-4 border-t border-slate-200">
               <p className="text-center text-slate-600">
                 Don't have an account?{" "}

@@ -2,8 +2,8 @@ import { useMutation } from "@tanstack/react-query";
 import api from "@/src/app/api/api";
 
 export type RegisterPayload = {
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   phone: string;

@@ -1,37 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
-import { Loader2, Mail } from "lucide-react";
+import { useState } from "react";
+import { Loader2, Mail, Lock, EyeOff, Eye } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import useRegister from "@/hooks/use-register";
-import { Lock, EyeOff, Eye } from "lucide-react";
+import { RegisterSchema, registerSchema } from "@/lib/schema/register-schema";
 
 export default function Signup() {
   const router = useRouter();
   const signup = useRegister();
-
   const [showPassword, setShowPassword] = useState(false);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterSchema>({
+    resolver: zodResolver(registerSchema),
+  });
 
   const isLoading = signup.isPending;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit = async (data: RegisterSchema) => {
     try {
-      await signup.mutateAsync({
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        password,
-        phone,
-      });
-
+      await signup.mutateAsync(data);
       router.push("/auth/login");
     } catch (error) {
       console.error("Signup error:", error);
@@ -67,16 +62,13 @@ export default function Signup() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
         <div className="w-full max-w-[460px]">
           <form
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             className="bg-white rounded-xl shadow-xl border border-slate-200 p-8 lg:p-10 space-y-6"
           >
             <div className="space-y-2">
               <h1 className="text-3xl font-bold text-slate-900">
                 Create Account
               </h1>
-              <p className="text-slate-600">
-                Join us today and start your journey
-              </p>
             </div>
 
             <div className="space-y-4">
@@ -86,13 +78,16 @@ export default function Signup() {
                   First Name
                 </label>
                 <input
+                  {...register("firstName")}
                   type="text"
                   placeholder="Enter your first name"
-                  required
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
                   className="w-full h-12 px-4 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                 />
+                {errors.firstName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.firstName.message}
+                  </p>
+                )}
               </div>
 
               {/* Last Name */}
@@ -101,13 +96,16 @@ export default function Signup() {
                   Last Name
                 </label>
                 <input
+                  {...register("lastName")}
                   type="text"
                   placeholder="Enter your last name"
-                  required
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
                   className="w-full h-12 px-4 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                 />
+                {errors.lastName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.lastName.message}
+                  </p>
+                )}
               </div>
 
               {/* Email */}
@@ -117,17 +115,19 @@ export default function Signup() {
                 </label>
                 <div className="relative">
                   <input
+                    {...register("email")}
                     type="email"
                     placeholder="you@example.com"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full h-12 px-4 pl-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                   />
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
                 </div>
+                {errors.email && (
+                  <p className="text-red-500 text-sm">{errors.email.message}</p>
+                )}
               </div>
 
+              {/* Phone */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
                   Phone Number
@@ -135,27 +135,27 @@ export default function Signup() {
                 <div className="relative flex items-center">
                   <span className="absolute left-3 text-slate-600">+855</span>
                   <input
+                    {...register("phone")}
                     type="tel"
                     placeholder="123 456 789"
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
                     className="w-full h-12 pl-14 pr-4 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                   />
                 </div>
+                {errors.phone && (
+                  <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                )}
               </div>
 
+              {/* Password */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700">
                   Password
                 </label>
                 <div className="relative">
                   <input
+                    {...register("password")}
                     type={showPassword ? "text" : "password"}
                     placeholder="Create a strong password"
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
                     className="w-full h-12 px-4 pl-11 pr-11 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
                   />
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
@@ -171,6 +171,11 @@ export default function Signup() {
                     )}
                   </button>
                 </div>
+                {errors.password && (
+                  <p className="text-red-500 text-sm">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -186,7 +191,6 @@ export default function Signup() {
               )}
             </button>
 
-            {/* Sign In Link */}
             <div className="pt-4 border-t border-slate-200">
               <p className="text-center text-slate-600">
                 Already have an account?{" "}
