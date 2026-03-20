@@ -1,20 +1,17 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json",
-  "main": ".open-next/worker.js",
-  "name": "hotel-system",
+  "$schema": "https://developers.cloudflare.com/workers/cli-wrangler/config",
+  "name": "breakout-room",
   "compatibility_date": "2026-02-12",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
-  },
+  "type": "javascript",
   "env": {
     "production": {
       "vars": {
-        "NEXT_PUBLIC_API_URL": "https://hotel-api.mockexamkh.com"
+        "VITE_BASE_URL": "http://138.197.45.40:8080"
       }
     }
+  },
+  "site": {
+    "bucket": "build",
+    "entry-point": "workers-site"
   }
 }
