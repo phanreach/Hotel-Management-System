@@ -903,7 +903,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/lib/lru-cache.js": {
-      "bytes": 5940,
+      "bytes": 6244,
       "imports": [],
       "format": "cjs"
     },
@@ -919,6 +919,63 @@
           "path": ".open-next/server-functions/default/node_modules/next/dist/server/lib/lru-cache.js",
           "kind": "require-call",
           "original": "../../server/lib/lru-cache"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/node_modules/next/dist/shared/lib/image-config.js": {
+      "bytes": 1558,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/node_modules/next/dist/shared/lib/errors/canary-only-config-error.js": {
+      "bytes": 1196,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/node_modules/next/dist/compiled/bytes/index.js": {
+      "bytes": 1661,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/node_modules/next/dist/shared/lib/size-limit.js": {
+      "bytes": 979,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/bytes/index.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/bytes"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/node_modules/next/dist/server/config-shared.js": {
+      "bytes": 11018,
+      "imports": [
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/image-config.js",
+          "kind": "require-call",
+          "original": "../shared/lib/image-config"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/lib/constants.js",
+          "kind": "require-call",
+          "original": "../lib/constants"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/errors/canary-only-config-error.js",
+          "kind": "require-call",
+          "original": "../shared/lib/errors/canary-only-config-error"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/size-limit.js",
+          "kind": "require-call",
+          "original": "../shared/lib/size-limit"
         }
       ],
       "format": "cjs"
@@ -2967,7 +3024,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/web/adapter.js": {
-      "bytes": 19461,
+      "bytes": 19498,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/server/web/error.js",
@@ -3219,8 +3276,13 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/base-server.js": {
-      "bytes": 102836,
+      "bytes": 104472,
       "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/config-shared.js",
+          "kind": "require-call",
+          "original": "./config-shared"
+        },
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/utils.js",
           "kind": "require-call",
@@ -3525,22 +3587,17 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/home/page_client-reference-manifest.js": {
-      "bytes": 9092,
+      "bytes": 9491,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/booking-history/page_client-reference-manifest.js": {
-      "bytes": 8975,
+      "bytes": 9200,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/about/page_client-reference-manifest.js": {
-      "bytes": 7228,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
-      "bytes": 7310,
+      "bytes": 7253,
       "imports": [],
       "format": "cjs"
     },
@@ -3549,38 +3606,58 @@
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
+      "bytes": 7335,
+      "imports": [],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/app/home/[homeId]/page_client-reference-manifest.js": {
-      "bytes": 9025,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js": {
-      "bytes": 9012,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js": {
-      "bytes": 8810,
+      "bytes": 9608,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/auth/signup/page_client-reference-manifest.js": {
-      "bytes": 8951,
+      "bytes": 9376,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/auth/login/page_client-reference-manifest.js": {
-      "bytes": 8950,
+      "bytes": 9375,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/admin/staff/page_client-reference-manifest.js": {
+      "bytes": 8806,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js": {
+      "bytes": 9237,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/admin/guest/page_client-reference-manifest.js": {
+      "bytes": 8806,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/admin/booking/page_client-reference-manifest.js": {
+      "bytes": 9190,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js": {
+      "bytes": 8825,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/home/[homeId]/confirm-booking/page_client-reference-manifest.js": {
-      "bytes": 8846,
+      "bytes": 9095,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-      "bytes": 24300,
+      "bytes": 32860,
       "imports": [
         {
           "path": "path",
@@ -3618,29 +3695,19 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/about/page_client-reference-manifest.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/app/home/[homeId]/page_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/home/[homeId]/page_client-reference-manifest.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/auth/signup/page_client-reference-manifest.js",
@@ -3651,6 +3718,31 @@
           "path": ".open-next/server-functions/default/.next/server/app/auth/login/page_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/auth/login/page_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/staff/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/staff/page_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/guest/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/guest/page_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/booking/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/booking/page_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/home/[homeId]/confirm-booking/page_client-reference-manifest.js",
@@ -3893,7 +3985,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js": {
-      "bytes": 514896,
+      "bytes": 518960,
       "imports": [
         {
           "path": "url",
@@ -4131,8 +4223,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__7acc6d2a._.js": {
-      "bytes": 13000,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc3dbcda._.js": {
+      "bytes": 11578,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
@@ -4157,13 +4249,13 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_07720ad9._.js": {
-      "bytes": 17651,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js": {
+      "bytes": 19050,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_c46ec274._.js": {
-      "bytes": 257430,
+      "bytes": 257434,
       "imports": [],
       "format": "cjs"
     },
@@ -4173,17 +4265,12 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_43f54b78._.js": {
-      "bytes": 66343,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_53e9c02b._.js": {
-      "bytes": 26207,
+      "bytes": 66325,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_63dba3f8._.js": {
-      "bytes": 152809,
+      "bytes": 149946,
       "imports": [],
       "format": "cjs"
     },
@@ -4197,23 +4284,28 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_db0b36e0._.js": {
-      "bytes": 66343,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_a021db9b._.js": {
+      "bytes": 12774,
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_dec45b21._.js": {
-      "bytes": 11370,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_db0b36e0._.js": {
+      "bytes": 66325,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_f5f17218._.js": {
+      "bytes": 79433,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_cd62ff06._.js": {
-      "bytes": 14323,
+      "bytes": 14314,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_index_mjs_d2532950._.js": {
-      "bytes": 97719,
+      "bytes": 97718,
       "imports": [],
       "format": "cjs"
     },
@@ -4222,13 +4314,8 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_81959fb0._.js": {
-      "bytes": 55574,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_852965c2._.js": {
-      "bytes": 79015,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js": {
+      "bytes": 59231,
       "imports": [],
       "format": "cjs"
     },
@@ -4243,7 +4330,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js": {
-      "bytes": 17473,
+      "bytes": 17586,
       "imports": [
         {
           "path": "path",
@@ -4255,6 +4342,11 @@
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_eedfc1fd._.js": {
       "bytes": 45582,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_tailwind-merge_dist_bundle-mjs_mjs_0b83d5d5._.js": {
+      "bytes": 25827,
       "imports": [],
       "format": "cjs"
     },
@@ -4285,7 +4377,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js": {
-      "bytes": 17075,
+      "bytes": 17188,
       "imports": [
         {
           "path": "path",
@@ -4410,7 +4502,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_17ed2179._.js": {
-      "bytes": 17500,
+      "bytes": 17613,
       "imports": [
         {
           "path": "path",
@@ -4435,8 +4527,8 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b0e9d574._.js": {
-      "bytes": 1354,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__70b05c82._.js": {
+      "bytes": 1346,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
@@ -4446,34 +4538,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_459da917._.js": {
-      "bytes": 14342,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_53223fd8._.js": {
-      "bytes": 10073,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_6b9a8957._.js": {
-      "bytes": 17579,
-      "imports": [
-        {
-          "path": "path",
-          "kind": "require-call",
-          "external": true
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_dashboard_page_actions_b058c280.js": {
-      "bytes": 128,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__3b0781bb._.js": {
-      "bytes": 261258,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98a96d64._.js": {
+      "bytes": 241479,
       "imports": [
         {
           "path": "stream",
@@ -4538,8 +4604,109 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__6908a3db._.js": {
-      "bytes": 17774,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b655376f._.js": {
+      "bytes": 17561,
+      "imports": [
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_4bde05d3._.js": {
+      "bytes": 17682,
+      "imports": [
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_booking_page_actions_3d1e455d.js": {
+      "bytes": 126,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_api_api_ts_42a50bcf._.js": {
+      "bytes": 19558,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b0e9d574._.js": {
+      "bytes": 1354,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
+          "kind": "require-call",
+          "original": "next/dist/shared/lib/no-fallback-error.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_6b9a8957._.js": {
+      "bytes": 17692,
+      "imports": [
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_e6ba61dc._.js": {
+      "bytes": 24108,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_dashboard_page_actions_b058c280.js": {
+      "bytes": 128,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__25433f88._.js": {
+      "bytes": 1338,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
+          "kind": "require-call",
+          "original": "next/dist/shared/lib/no-fallback-error.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_09801d98._.js": {
+      "bytes": 6307,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_eb44e306._.js": {
+      "bytes": 17668,
+      "imports": [
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_guest_page_actions_c5b6478d.js": {
+      "bytes": 124,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5906ea90._.js": {
+      "bytes": 16990,
       "imports": [
         {
           "path": "util",
@@ -4566,7 +4733,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_684682e4._.js": {
-      "bytes": 17554,
+      "bytes": 17667,
       "imports": [
         {
           "path": "path",
@@ -4586,8 +4753,8 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__76e490ed._.js": {
-      "bytes": 1334,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__db7c5021._.js": {
+      "bytes": 1338,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
@@ -4597,8 +4764,29 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__abb476fa._.js": {
-      "bytes": 10299,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_26630da8._.js": {
+      "bytes": 6307,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_9730e6dc._.js": {
+      "bytes": 17672,
+      "imports": [
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_staff_page_actions_5ab5c69c.js": {
+      "bytes": 124,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5221f5b5._.js": {
+      "bytes": 9243,
       "imports": [
         {
           "path": "util",
@@ -4613,8 +4801,19 @@
       ],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__76e490ed._.js": {
+      "bytes": 1334,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
+          "kind": "require-call",
+          "original": "next/dist/shared/lib/no-fallback-error.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_06cda788._.js": {
-      "bytes": 17554,
+      "bytes": 17667,
       "imports": [
         {
           "path": "path",
@@ -4629,6 +4828,11 @@
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_lucide-react_dist_esm_icons_mail_5a8ab227.js": {
+      "bytes": 298706,
+      "imports": [],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1798ba2f._.js": {
       "bytes": 1338,
       "imports": [
@@ -4640,8 +4844,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__2ed01c09._.js": {
-      "bytes": 9603,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c5cc217f._.js": {
+      "bytes": 9854,
       "imports": [
         {
           "path": "util",
@@ -4657,7 +4861,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_35d2acec._.js": {
-      "bytes": 17559,
+      "bytes": 17672,
       "imports": [
         {
           "path": "path",
@@ -4672,8 +4876,8 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1aa27265._.js": {
-      "bytes": 16371,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1073d053._.js": {
+      "bytes": 16912,
       "imports": [
         {
           "path": "util",
@@ -4700,7 +4904,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_ee0f04e7._.js": {
-      "bytes": 17550,
+      "bytes": 17663,
       "imports": [
         {
           "path": "path",
@@ -4752,7 +4956,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js": {
-      "bytes": 152347,
+      "bytes": 153864,
       "imports": [
         {
           "path": "url",
@@ -4858,7 +5062,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js": {
-      "bytes": 184737,
+      "bytes": 187673,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js",
@@ -4884,8 +5088,24 @@
       ],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc770fd3._.js": {
+      "bytes": 17487,
+      "imports": [
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_4d7b9610._.js": {
-      "bytes": 17678,
+      "bytes": 17791,
       "imports": [
         {
           "path": "path",
@@ -4895,14 +5115,25 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_aa885bf8._.js": {
-      "bytes": 15855,
-      "imports": [],
-      "format": "cjs"
-    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_confirm-booking_page_actions_161572b5.js": {
       "bytes": 146,
       "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8567276a._.js": {
+      "bytes": 9707,
+      "imports": [
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e3341d88._.js": {
@@ -4917,7 +5148,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_6796b1ef._.js": {
-      "bytes": 17569,
+      "bytes": 17682,
       "imports": [
         {
           "path": "path",
@@ -4927,23 +5158,18 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_b0eddae1._.js": {
-      "bytes": 9547,
-      "imports": [],
-      "format": "cjs"
-    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_page_actions_962916b9.js": {
       "bytes": 130,
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_react-icons_fa_index_mjs_02f2a295._.js": {
-      "bytes": 6030,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_31d4b523._.js": {
+      "bytes": 58301,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_[homeId]_page_tsx_b8ada80f._.js": {
-      "bytes": 12689,
+      "bytes": 147078,
       "imports": [],
       "format": "cjs"
     },
@@ -4958,13 +5184,90 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_562bc755._.js": {
-      "bytes": 11159,
-      "imports": [],
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ac94d82f._.js": {
+      "bytes": 241479,
+      "imports": [
+        {
+          "path": "stream",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "https",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "url",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "crypto",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http2",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "assert",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "tty",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "zlib",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "events",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c19dfe05._.js": {
+      "bytes": 10936,
+      "imports": [
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_91f266f0._.js": {
-      "bytes": 17492,
+      "bytes": 17605,
       "imports": [
         {
           "path": "path",
@@ -4979,13 +5282,18 @@
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_44ee904d._.js": {
+      "bytes": 58301,
+      "imports": [],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_page_tsx_348afd7d._.js": {
-      "bytes": 167503,
+      "bytes": 126894,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js": {
-      "bytes": 49764,
+      "bytes": 53568,
       "imports": [
         {
           "path": "next/dist/compiled/@vercel/og/index.edge.js",
@@ -5028,9 +5336,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__7acc6d2a._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc3dbcda._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__7acc6d2a._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc3dbcda._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -5038,9 +5346,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_07720ad9._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_07720ad9._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_c46ec274._.js",
@@ -5058,11 +5366,6 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_43f54b78._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_53e9c02b._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_53e9c02b._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_63dba3f8._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_63dba3f8._.js"
@@ -5078,14 +5381,19 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_@heroui_toast_dist_src-UW24ZMRV_mjs_da59f8ac._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_a021db9b._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_a021db9b._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_db0b36e0._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_db0b36e0._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_dec45b21._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_f5f17218._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_dec45b21._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_f5f17218._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_cd62ff06._.js",
@@ -5103,14 +5411,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_920e7746._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_81959fb0._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_81959fb0._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_852965c2._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_852965c2._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js",
@@ -5131,6 +5434,11 @@
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_eedfc1fd._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_eedfc1fd._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_tailwind-merge_dist_bundle-mjs_mjs_0b83d5d5._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_tailwind-merge_dist_bundle-mjs_mjs_0b83d5d5._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js",
@@ -5198,19 +5506,39 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__70b05c82._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__70b05c82._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98a96d64._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98a96d64._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b655376f._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b655376f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_4bde05d3._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_4bde05d3._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_booking_page_actions_3d1e455d.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_booking_page_actions_3d1e455d.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_api_api_ts_42a50bcf._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_api_api_ts_42a50bcf._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b0e9d574._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b0e9d574._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_459da917._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_459da917._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_53223fd8._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_53223fd8._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_6b9a8957._.js",
@@ -5218,19 +5546,39 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_6b9a8957._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_e6ba61dc._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_e6ba61dc._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_dashboard_page_actions_b058c280.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_dashboard_page_actions_b058c280.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__3b0781bb._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__25433f88._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__3b0781bb._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__25433f88._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__6908a3db._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_09801d98._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__6908a3db._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_09801d98._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_eb44e306._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_eb44e306._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_guest_page_actions_c5b6478d.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_guest_page_actions_c5b6478d.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5906ea90._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5906ea90._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5e74d93._.js",
@@ -5253,14 +5601,34 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_admin_room_page_tsx_c9bee9c6._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__db7c5021._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__db7c5021._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_26630da8._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_26630da8._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_9730e6dc._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_9730e6dc._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_staff_page_actions_5ab5c69c.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_staff_page_actions_5ab5c69c.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5221f5b5._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5221f5b5._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__76e490ed._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__76e490ed._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__abb476fa._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__abb476fa._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_06cda788._.js",
@@ -5273,14 +5641,19 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_auth_login_page_actions_1786e20a.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_lucide-react_dist_esm_icons_mail_5a8ab227.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_lucide-react_dist_esm_icons_mail_5a8ab227.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1798ba2f._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1798ba2f._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__2ed01c09._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c5cc217f._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__2ed01c09._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c5cc217f._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_35d2acec._.js",
@@ -5293,9 +5666,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_auth_signup_page_actions_e8d4ef1c.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1aa27265._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1073d053._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1aa27265._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1073d053._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a1c9ecb1._.js",
@@ -5338,19 +5711,24 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__204664a6._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc770fd3._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc770fd3._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_4d7b9610._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_4d7b9610._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_aa885bf8._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_aa885bf8._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_confirm-booking_page_actions_161572b5.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_confirm-booking_page_actions_161572b5.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8567276a._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8567276a._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e3341d88._.js",
@@ -5363,19 +5741,14 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_6796b1ef._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_b0eddae1._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_b0eddae1._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_page_actions_962916b9.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_page_actions_962916b9.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_react-icons_fa_index_mjs_02f2a295._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_31d4b523._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_react-icons_fa_index_mjs_02f2a295._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_31d4b523._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_[homeId]_page_tsx_b8ada80f._.js",
@@ -5388,9 +5761,14 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__205ab819._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_562bc755._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ac94d82f._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_562bc755._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ac94d82f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c19dfe05._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c19dfe05._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_91f266f0._.js",
@@ -5401,6 +5779,11 @@
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_page_actions_3545fce0.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_page_actions_3545fce0.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_44ee904d._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_44ee904d._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_page_tsx_348afd7d._.js",
@@ -5416,7 +5799,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js": {
-      "bytes": 49774,
+      "bytes": 53578,
       "imports": [
         {
           "path": "next/dist/compiled/@vercel/og/index.edge.js",
@@ -5459,9 +5842,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__7acc6d2a._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc3dbcda._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__7acc6d2a._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc3dbcda._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -5469,9 +5852,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_07720ad9._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_07720ad9._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_c46ec274._.js",
@@ -5489,11 +5872,6 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_43f54b78._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_53e9c02b._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_53e9c02b._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_63dba3f8._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_63dba3f8._.js"
@@ -5509,14 +5887,19 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_@heroui_toast_dist_src-UW24ZMRV_mjs_da59f8ac._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_a021db9b._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_a021db9b._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_db0b36e0._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_db0b36e0._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_dec45b21._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_f5f17218._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_dec45b21._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_f5f17218._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_cd62ff06._.js",
@@ -5534,14 +5917,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_920e7746._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_81959fb0._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_81959fb0._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_852965c2._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_852965c2._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js",
@@ -5562,6 +5940,11 @@
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_eedfc1fd._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_eedfc1fd._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_tailwind-merge_dist_bundle-mjs_mjs_0b83d5d5._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_tailwind-merge_dist_bundle-mjs_mjs_0b83d5d5._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js",
@@ -5629,19 +6012,39 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__70b05c82._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__70b05c82._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98a96d64._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98a96d64._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b655376f._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b655376f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_4bde05d3._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_4bde05d3._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_booking_page_actions_3d1e455d.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_booking_page_actions_3d1e455d.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_api_api_ts_42a50bcf._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_api_api_ts_42a50bcf._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b0e9d574._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b0e9d574._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_459da917._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_459da917._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_53223fd8._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_53223fd8._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_6b9a8957._.js",
@@ -5649,19 +6052,39 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_6b9a8957._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_e6ba61dc._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_e6ba61dc._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_dashboard_page_actions_b058c280.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_dashboard_page_actions_b058c280.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__3b0781bb._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__25433f88._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__3b0781bb._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__25433f88._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__6908a3db._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_09801d98._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__6908a3db._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_09801d98._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_eb44e306._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_eb44e306._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_guest_page_actions_c5b6478d.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_guest_page_actions_c5b6478d.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5906ea90._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5906ea90._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5e74d93._.js",
@@ -5684,14 +6107,34 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_admin_room_page_tsx_c9bee9c6._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__db7c5021._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__db7c5021._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_26630da8._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_26630da8._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_9730e6dc._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_9730e6dc._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_staff_page_actions_5ab5c69c.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_staff_page_actions_5ab5c69c.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5221f5b5._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5221f5b5._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__76e490ed._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__76e490ed._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__abb476fa._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__abb476fa._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_06cda788._.js",
@@ -5704,14 +6147,19 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_auth_login_page_actions_1786e20a.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_lucide-react_dist_esm_icons_mail_5a8ab227.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_lucide-react_dist_esm_icons_mail_5a8ab227.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1798ba2f._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1798ba2f._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__2ed01c09._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c5cc217f._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__2ed01c09._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c5cc217f._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_35d2acec._.js",
@@ -5724,9 +6172,9 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_auth_signup_page_actions_e8d4ef1c.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1aa27265._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1073d053._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1aa27265._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1073d053._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a1c9ecb1._.js",
@@ -5769,19 +6217,24 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__204664a6._.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc770fd3._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc770fd3._.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_4d7b9610._.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_4d7b9610._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_aa885bf8._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_aa885bf8._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_confirm-booking_page_actions_161572b5.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_confirm-booking_page_actions_161572b5.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8567276a._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8567276a._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e3341d88._.js",
@@ -5794,19 +6247,14 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_6796b1ef._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_b0eddae1._.js",
-          "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_b0eddae1._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_page_actions_962916b9.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_page_actions_962916b9.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_react-icons_fa_index_mjs_02f2a295._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_31d4b523._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_react-icons_fa_index_mjs_02f2a295._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_31d4b523._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_[homeId]_page_tsx_b8ada80f._.js",
@@ -5819,9 +6267,14 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__205ab819._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_562bc755._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ac94d82f._.js",
           "kind": "require-call",
-          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_562bc755._.js"
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ac94d82f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c19dfe05._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c19dfe05._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_91f266f0._.js",
@@ -5832,6 +6285,11 @@
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_page_actions_3545fce0.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_page_actions_3545fce0.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_44ee904d._.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_44ee904d._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_page_tsx_348afd7d._.js",
@@ -5879,6 +6337,17 @@
       ],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/app/admin/booking/page.js": {
+      "bytes": 1026,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
+          "kind": "require-call",
+          "original": "../../../chunks/ssr/[turbopack]_runtime.js"
+        }
+      ],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/app/admin/dashboard/page.js": {
       "bytes": 1030,
       "imports": [
@@ -5890,8 +6359,30 @@
       ],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/app/admin/guest/page.js": {
+      "bytes": 1022,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
+          "kind": "require-call",
+          "original": "../../../chunks/ssr/[turbopack]_runtime.js"
+        }
+      ],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/app/admin/room/page.js": {
       "bytes": 1020,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
+          "kind": "require-call",
+          "original": "../../../chunks/ssr/[turbopack]_runtime.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/admin/staff/page.js": {
+      "bytes": 1022,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
@@ -5979,7 +6470,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/require.js": {
-      "bytes": 7117,
+      "bytes": 7850,
       "imports": [
         {
           "path": "path",
@@ -6042,14 +6533,29 @@
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/about/page.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/booking/page.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/booking/page.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/app/admin/dashboard/page.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/dashboard/page.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/guest/page.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/guest/page.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/app/admin/room/page.js",
           "kind": "require-call",
           "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/room/page.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/admin/staff/page.js",
+          "kind": "require-call",
+          "original": "/Users/ouyorngkheang/Documents/Aditi/Hotel-Management-System/.open-next/server-functions/default/.next/server/app/admin/staff/page.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/auth/login/page.js",
@@ -6202,11 +6708,6 @@
       "imports": [],
       "format": "esm"
     },
-    ".open-next/server-functions/default/node_modules/next/dist/compiled/bytes/index.js": {
-      "bytes": 1661,
-      "imports": [],
-      "format": "cjs"
-    },
     ".open-next/server-functions/default/node_modules/next/dist/server/body-streams.js": {
       "bytes": 3717,
       "imports": [
@@ -6261,12 +6762,22 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/response-cache/index.js": {
-      "bytes": 10295,
+      "bytes": 15639,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/lib/batcher.js",
           "kind": "require-call",
           "original": "../../lib/batcher"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/lib/lru-cache.js",
+          "kind": "require-call",
+          "original": "../lib/lru-cache"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/build/output/log.js",
+          "kind": "require-call",
+          "original": "../../build/output/log"
         },
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/lib/scheduler.js",
@@ -6602,7 +7113,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/pages-turbo.runtime.prod.js": {
-      "bytes": 119714,
+      "bytes": 121224,
       "imports": [
         {
           "path": "url",
@@ -7234,7 +7745,7 @@
       "format": "esm"
     },
     ".open-next/server-functions/default/index.mjs": {
-      "bytes": 83159,
+      "bytes": 88436,
       "imports": [
         {
           "path": "node:module",
@@ -7370,6 +7881,11 @@
         },
         {
           "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
           "kind": "require-call",
           "external": true
         },
@@ -7529,11 +8045,6 @@
           "external": true
         },
         {
-          "path": "path",
-          "kind": "require-call",
-          "external": true
-        },
-        {
           "path": "stream",
           "kind": "require-call",
           "external": true
@@ -7595,6 +8106,36 @@
         },
         {
           "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
           "kind": "require-call",
           "external": true
         },
@@ -7684,7 +8225,97 @@
           "external": true
         },
         {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
           "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "stream",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "https",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "url",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "crypto",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http2",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "assert",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "tty",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "zlib",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "events",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
           "kind": "require-call",
           "external": true
         },
@@ -8128,10 +8759,25 @@
           "bytesInOutput": 873
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/lib/lru-cache.js": {
-          "bytesInOutput": 2088
+          "bytesInOutput": 2180
         },
         ".open-next/server-functions/default/node_modules/next/dist/build/output/log.js": {
           "bytesInOutput": 2444
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/shared/lib/image-config.js": {
+          "bytesInOutput": 1018
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/shared/lib/errors/canary-only-config-error.js": {
+          "bytesInOutput": 859
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/compiled/bytes/index.js": {
+          "bytesInOutput": 1577
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/shared/lib/size-limit.js": {
+          "bytesInOutput": 766
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/server/config-shared.js": {
+          "bytesInOutput": 7509
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/lib/is-ipv6.js": {
           "bytesInOutput": 936
@@ -8557,7 +9203,7 @@
           "bytesInOutput": 708
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/web/adapter.js": {
-          "bytesInOutput": 10587
+          "bytesInOutput": 10622
         },
         ".open-next/server-functions/default/node_modules/next/dist/lib/fallback.js": {
           "bytesInOutput": 1839
@@ -8590,46 +9236,55 @@
           "bytesInOutput": 1600
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/base-server.js": {
-          "bytesInOutput": 51706
+          "bytesInOutput": 52681
         },
         ".open-next/server-functions/default/node_modules/next/dist/shared/lib/deep-freeze.js": {
           "bytesInOutput": 586
         },
         ".open-next/server-functions/default/.next/server/app/home/page_client-reference-manifest.js": {
-          "bytesInOutput": 8738
+          "bytesInOutput": 9137
         },
         ".open-next/server-functions/default/.next/server/app/booking-history/page_client-reference-manifest.js": {
-          "bytesInOutput": 8633
+          "bytesInOutput": 8858
         },
         ".open-next/server-functions/default/.next/server/app/about/page_client-reference-manifest.js": {
-          "bytesInOutput": 6931
-        },
-        ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
-          "bytesInOutput": 7018
+          "bytesInOutput": 6956
         },
         ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
           "bytesInOutput": 5754
         },
+        ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
+          "bytesInOutput": 7043
+        },
         ".open-next/server-functions/default/.next/server/app/home/[homeId]/page_client-reference-manifest.js": {
-          "bytesInOutput": 8681
-        },
-        ".open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js": {
-          "bytesInOutput": 8665
-        },
-        ".open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js": {
-          "bytesInOutput": 8468
+          "bytesInOutput": 9257
         },
         ".open-next/server-functions/default/.next/server/app/auth/signup/page_client-reference-manifest.js": {
-          "bytesInOutput": 8605
+          "bytesInOutput": 9030
         },
         ".open-next/server-functions/default/.next/server/app/auth/login/page_client-reference-manifest.js": {
-          "bytesInOutput": 8604
+          "bytesInOutput": 9028
+        },
+        ".open-next/server-functions/default/.next/server/app/admin/staff/page_client-reference-manifest.js": {
+          "bytesInOutput": 8460
+        },
+        ".open-next/server-functions/default/.next/server/app/admin/room/page_client-reference-manifest.js": {
+          "bytesInOutput": 8891
+        },
+        ".open-next/server-functions/default/.next/server/app/admin/guest/page_client-reference-manifest.js": {
+          "bytesInOutput": 8461
+        },
+        ".open-next/server-functions/default/.next/server/app/admin/booking/page_client-reference-manifest.js": {
+          "bytesInOutput": 8847
+        },
+        ".open-next/server-functions/default/.next/server/app/admin/dashboard/page_client-reference-manifest.js": {
+          "bytesInOutput": 8484
         },
         ".open-next/server-functions/default/.next/server/app/home/[homeId]/confirm-booking/page_client-reference-manifest.js": {
-          "bytesInOutput": 8519
+          "bytesInOutput": 8768
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-          "bytesInOutput": 16491
+          "bytesInOutput": 22120
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js": {
           "bytesInOutput": 538
@@ -8686,7 +9341,7 @@
           "bytesInOutput": 11580
         },
         ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js": {
-          "bytesInOutput": 561927
+          "bytesInOutput": 566386
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0a168bbe._.js": {
           "bytesInOutput": 3480
@@ -8697,14 +9352,14 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js": {
           "bytesInOutput": 981
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__7acc6d2a._.js": {
-          "bytesInOutput": 13274
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc3dbcda._.js": {
+          "bytesInOutput": 11815
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_07720ad9._.js": {
-          "bytesInOutput": 18567
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js": {
+          "bytesInOutput": 20071
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_c46ec274._.js": {
-          "bytesInOutput": 264580
+          "bytesInOutput": 264707
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js": {
           "bytesInOutput": 272
@@ -8712,11 +9367,8 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_43f54b78._.js": {
           "bytesInOutput": 70442
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_53e9c02b._.js": {
-          "bytesInOutput": 27391
-        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_63dba3f8._.js": {
-          "bytesInOutput": 162753
+          "bytesInOutput": 159101
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_7d1f2317._.js": {
           "bytesInOutput": 13517
@@ -8724,26 +9376,26 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_@heroui_toast_dist_src-UW24ZMRV_mjs_da59f8ac._.js": {
           "bytesInOutput": 332
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_a021db9b._.js": {
+          "bytesInOutput": 13579
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_db0b36e0._.js": {
           "bytesInOutput": 70442
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_dec45b21._.js": {
-          "bytesInOutput": 12120
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_f5f17218._.js": {
+          "bytesInOutput": 84131
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_cd62ff06._.js": {
           "bytesInOutput": 15218
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_index_mjs_d2532950._.js": {
-          "bytesInOutput": 106807
+          "bytesInOutput": 106830
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_920e7746._.js": {
           "bytesInOutput": 32702
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_81959fb0._.js": {
-          "bytesInOutput": 58064
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_852965c2._.js": {
-          "bytesInOutput": 83668
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js": {
+          "bytesInOutput": 61894
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js": {
           "bytesInOutput": 2642
@@ -8752,10 +9404,13 @@
           "bytesInOutput": 785
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js": {
-          "bytesInOutput": 17805
+          "bytesInOutput": 17918
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_eedfc1fd._.js": {
           "bytesInOutput": 47095
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_tailwind-merge_dist_bundle-mjs_mjs_0b83d5d5._.js": {
+          "bytesInOutput": 27004
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js": {
           "bytesInOutput": 330
@@ -8770,7 +9425,7 @@
           "bytesInOutput": 278
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js": {
-          "bytesInOutput": 17378
+          "bytesInOutput": 17491
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0cc83f9e._.js": {
           "bytesInOutput": 1723
@@ -8785,7 +9440,7 @@
           "bytesInOutput": 1589
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_17ed2179._.js": {
-          "bytesInOutput": 17778
+          "bytesInOutput": 17891
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_about_page_actions_6fff35e4.js": {
           "bytesInOutput": 262
@@ -8796,32 +9451,56 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js": {
           "bytesInOutput": 801
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__70b05c82._.js": {
+          "bytesInOutput": 1437
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98a96d64._.js": {
+          "bytesInOutput": 248001
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b655376f._.js": {
+          "bytesInOutput": 18138
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_4bde05d3._.js": {
+          "bytesInOutput": 17961
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_booking_page_actions_3d1e455d.js": {
+          "bytesInOutput": 279
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_api_api_ts_42a50bcf._.js": {
+          "bytesInOutput": 19902
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b0e9d574._.js": {
           "bytesInOutput": 1445
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_459da917._.js": {
-          "bytesInOutput": 14872
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_53223fd8._.js": {
-          "bytesInOutput": 10230
-        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_6b9a8957._.js": {
-          "bytesInOutput": 17858
+          "bytesInOutput": 17971
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_e6ba61dc._.js": {
+          "bytesInOutput": 24698
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_dashboard_page_actions_b058c280.js": {
           "bytesInOutput": 283
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__3b0781bb._.js": {
-          "bytesInOutput": 267609
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__25433f88._.js": {
+          "bytesInOutput": 1429
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__6908a3db._.js": {
-          "bytesInOutput": 18411
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_09801d98._.js": {
+          "bytesInOutput": 6451
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_eb44e306._.js": {
+          "bytesInOutput": 17948
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_guest_page_actions_c5b6478d.js": {
+          "bytesInOutput": 275
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5906ea90._.js": {
+          "bytesInOutput": 17614
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5e74d93._.js": {
           "bytesInOutput": 2149
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_684682e4._.js": {
-          "bytesInOutput": 17828
+          "bytesInOutput": 17941
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_room_page_actions_15f630a1.js": {
           "bytesInOutput": 273
@@ -8829,38 +9508,53 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_admin_room_page_tsx_c9bee9c6._.js": {
           "bytesInOutput": 33616
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__db7c5021._.js": {
+          "bytesInOutput": 1429
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_26630da8._.js": {
+          "bytesInOutput": 6451
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_9730e6dc._.js": {
+          "bytesInOutput": 17948
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_admin_staff_page_actions_5ab5c69c.js": {
+          "bytesInOutput": 275
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5221f5b5._.js": {
+          "bytesInOutput": 9470
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__76e490ed._.js": {
           "bytesInOutput": 1425
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__abb476fa._.js": {
-          "bytesInOutput": 10537
-        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_06cda788._.js": {
-          "bytesInOutput": 17832
+          "bytesInOutput": 17945
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_auth_login_page_actions_1786e20a.js": {
           "bytesInOutput": 273
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_lucide-react_dist_esm_icons_mail_5a8ab227.js": {
+          "bytesInOutput": 370363
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1798ba2f._.js": {
           "bytesInOutput": 1429
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__2ed01c09._.js": {
-          "bytesInOutput": 9825
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c5cc217f._.js": {
+          "bytesInOutput": 10066
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_35d2acec._.js": {
-          "bytesInOutput": 17837
+          "bytesInOutput": 17950
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_auth_signup_page_actions_e8d4ef1c.js": {
           "bytesInOutput": 275
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1aa27265._.js": {
-          "bytesInOutput": 16956
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1073d053._.js": {
+          "bytesInOutput": 17574
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a1c9ecb1._.js": {
           "bytesInOutput": 1445
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_ee0f04e7._.js": {
-          "bytesInOutput": 17830
+          "bytesInOutput": 17943
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_booking-history_page_actions_e1e5cec5.js": {
           "bytesInOutput": 283
@@ -8869,10 +9563,10 @@
           "bytesInOutput": 977
         },
         ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js": {
-          "bytesInOutput": 161549
+          "bytesInOutput": 163913
         },
         ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js": {
-          "bytesInOutput": 190516
+          "bytesInOutput": 193662
         },
         ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js": {
           "bytesInOutput": 273
@@ -8880,53 +9574,59 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__204664a6._.js": {
           "bytesInOutput": 1501
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_4d7b9610._.js": {
-          "bytesInOutput": 17957
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__cc770fd3._.js": {
+          "bytesInOutput": 18117
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_aa885bf8._.js": {
-          "bytesInOutput": 16403
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_4d7b9610._.js": {
+          "bytesInOutput": 18070
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_confirm-booking_page_actions_161572b5.js": {
           "bytesInOutput": 309
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8567276a._.js": {
+          "bytesInOutput": 10230
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e3341d88._.js": {
           "bytesInOutput": 1435
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_6796b1ef._.js": {
-          "bytesInOutput": 17845
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_b0eddae1._.js": {
-          "bytesInOutput": 10050
+          "bytesInOutput": 17958
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_[homeId]_page_actions_962916b9.js": {
           "bytesInOutput": 277
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_react-icons_fa_index_mjs_02f2a295._.js": {
-          "bytesInOutput": 6361
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_31d4b523._.js": {
+          "bytesInOutput": 62212
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_[homeId]_page_tsx_b8ada80f._.js": {
-          "bytesInOutput": 13013
+          "bytesInOutput": 160636
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__205ab819._.js": {
           "bytesInOutput": 1400
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_562bc755._.js": {
-          "bytesInOutput": 11667
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ac94d82f._.js": {
+          "bytesInOutput": 248001
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__c19dfe05._.js": {
+          "bytesInOutput": 11457
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_91f266f0._.js": {
-          "bytesInOutput": 17770
+          "bytesInOutput": 17883
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_home_page_actions_3545fce0.js": {
           "bytesInOutput": 261
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_44ee904d._.js": {
+          "bytesInOutput": 62212
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_home_page_tsx_348afd7d._.js": {
-          "bytesInOutput": 184432
+          "bytesInOutput": 137246
         },
         ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js": {
-          "bytesInOutput": 24112
+          "bytesInOutput": 25856
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js": {
-          "bytesInOutput": 24162
+          "bytesInOutput": 25906
         },
         ".open-next/server-functions/default/.next/server/app/_global-error/page.js": {
           "bytesInOutput": 729
@@ -8937,26 +9637,35 @@
         ".open-next/server-functions/default/.next/server/app/about/page.js": {
           "bytesInOutput": 1116
         },
+        ".open-next/server-functions/default/.next/server/app/admin/booking/page.js": {
+          "bytesInOutput": 1140
+        },
         ".open-next/server-functions/default/.next/server/app/admin/dashboard/page.js": {
           "bytesInOutput": 1146
         },
+        ".open-next/server-functions/default/.next/server/app/admin/guest/page.js": {
+          "bytesInOutput": 1134
+        },
         ".open-next/server-functions/default/.next/server/app/admin/room/page.js": {
           "bytesInOutput": 1131
+        },
+        ".open-next/server-functions/default/.next/server/app/admin/staff/page.js": {
+          "bytesInOutput": 1134
         },
         ".open-next/server-functions/default/.next/server/app/auth/login/page.js": {
           "bytesInOutput": 1131
         },
         ".open-next/server-functions/default/.next/server/app/auth/signup/page.js": {
-          "bytesInOutput": 1134
+          "bytesInOutput": 1135
         },
         ".open-next/server-functions/default/.next/server/app/booking-history/page.js": {
-          "bytesInOutput": 1146
+          "bytesInOutput": 1147
         },
         ".open-next/server-functions/default/.next/server/app/favicon.ico/route.js": {
           "bytesInOutput": 451
         },
         ".open-next/server-functions/default/.next/server/app/home/[homeId]/confirm-booking/page.js": {
-          "bytesInOutput": 1188
+          "bytesInOutput": 1189
         },
         ".open-next/server-functions/default/.next/server/app/home/[homeId]/page.js": {
           "bytesInOutput": 1141
@@ -8965,7 +9674,7 @@
           "bytesInOutput": 1114
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/require.js": {
-          "bytesInOutput": 3893
+          "bytesInOutput": 4171
         },
         ".open-next/server-functions/default/node_modules/next/dist/lib/wait.js": {
           "bytesInOutput": 341
@@ -8982,9 +9691,6 @@
         ".open-next/cloudflare-templates/shims/env.js": {
           "bytesInOutput": 187
         },
-        ".open-next/server-functions/default/node_modules/next/dist/compiled/bytes/index.js": {
-          "bytesInOutput": 1577
-        },
         ".open-next/server-functions/default/node_modules/next/dist/server/body-streams.js": {
           "bytesInOutput": 2189
         },
@@ -8995,7 +9701,7 @@
           "bytesInOutput": 3114
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/response-cache/index.js": {
-          "bytesInOutput": 4453
+          "bytesInOutput": 6226
         },
         ".open-next/server-functions/default/node_modules/next/dist/lib/multi-file-writer.js": {
           "bytesInOutput": 984
@@ -9058,7 +9764,7 @@
           "bytesInOutput": 156
         },
         ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/pages-turbo.runtime.prod.js": {
-          "bytesInOutput": 126728
+          "bytesInOutput": 128385
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/route-modules/pages/module.compiled.js": {
           "bytesInOutput": 230
@@ -9115,10 +9821,10 @@
           "bytesInOutput": 4969
         },
         ".open-next/server-functions/default/index.mjs": {
-          "bytesInOutput": 57637
+          "bytesInOutput": 62210
         }
       },
-      "bytes": 4166371
+      "bytes": 5167366
     }
   }
 }
